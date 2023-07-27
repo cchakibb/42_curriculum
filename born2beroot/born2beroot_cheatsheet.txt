@@ -1,0 +1,41 @@
+a70db912f6e4753d91cb8ed648a23ab9b1b79672 (test)
+
+
+chbachir42 = Born2beroot
+chbachir = Born2beuser
+passphrase = Born2bepass
+
+
+CHECK the version of Debian
+$ hostnamectl __||__ cat /etc/debian_version __||__ cat /etc/os-release
+
+
+Password policy =
+-> apt-get install libpam-pwquality
+$ sudo vim /etc/pam.d/common-password
+$ nano /etc/security/pwquality.conf
+
+CREATE a group =
+$ sudo groupadd group_name
+
+ADD USER to a group =
+$ usermod -aG group_name user_name
+
+CHECK that user is in group_name = 
+$ getent group group_name
+
+CHECK ALL local users =
+$ cut -d: -f1 /etc/passwd
+
+check SSH Server Status = 
+$ systemctl status ssh __||__ sudo service ssh status
+
+Check open ports =
+$ sudo ufw status numbered
+
+Manage password policy =
+$ sudo vim /etc/pam.d/common-password
+$ sudo vim /etc/login.defs
+
+Cron =
+$ sudo crontab -u root -e
