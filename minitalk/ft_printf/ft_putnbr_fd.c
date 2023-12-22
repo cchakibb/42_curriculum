@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chbachir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:31:43 by chbachir          #+#    #+#             */
-/*   Updated: 2023/06/12 12:19:31 by chbachir         ###   ########.fr       */
+/*   Updated: 2023/12/18 13:17:15 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
@@ -26,7 +26,7 @@ void	ft_putnbr_fd(int n, int fd)
 			n = -n;
 		}
 		if (n > 9)
-		{	
+		{
 			ft_putnbr_fd(n / 10, fd);
 			ft_putnbr_fd(n % 10, fd);
 		}

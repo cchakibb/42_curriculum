@@ -6,7 +6,7 @@
 /*   By: chbachir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 10:49:36 by chbachir          #+#    #+#             */
-/*   Updated: 2023/07/26 18:06:22 by chbachir         ###   ########.fr       */
+/*   Updated: 2023/07/26 17:00:34 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*ft_line(char *stash)
 	if (!line)
 		return (NULL);
 	i = 0;
-	while (stash[i] && stash[i] != '\n')
+	while (stash[i] != 0 && stash[i] != '\n')
 	{
 		line[i] = stash[i];
 		i++;
