@@ -93,23 +93,21 @@ char	*ft_read(int fd, char *stash)
 	return (stash);
 }
 
-char	*get_next_line(int fd) 	//This is the main function for reading the next line from the given file descriptor (fd). 
-	//It returns a dynamically allocated string, representing the line read.
+char	*get_next_line(int fd)
 {
-	static char	*stash; //A static variable (stash) is used to keep track of the remaining content from the previous reads.
-	char		*line; //it will be used to store the current line being read.
-	char		*next; //it will be used to store the content of stash that comes after the current line.
+	static char	*stash;
+	char		*line;
+	char		*next;
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
-	stash = ft_read(fd, stash); //Calls the ft_read function to read data from the file descriptor (fd) and appends 
-				   //it to the existing stash. The new stash is then assigned to the static variable.
+	stash = ft_read(fd, stash);
 	if (stash == NULL)
 		return (NULL);
-	line = ft_line(stash); //Calls the ft_line function to extract the current line from stash and assigns it to line.
-	next = stash; //assigns the current stash to the next variable.
-	stash = ft_next(stash); //updates stash by calling the ft_next function, which removes the current line from stash.
-	free (next); //frees the memory occupied by the content of stash before the current line (stored in next).
+	line = ft_line(stash);
+	next = stash;
+	stash = ft_next(stash);
+	free (next);
 	next = NULL;
-	return (line); //the current line that was read from the file.
+	return (line);
 }

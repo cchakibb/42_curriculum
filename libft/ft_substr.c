@@ -6,7 +6,7 @@
 /*   By: chbachir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:08:59 by chbachir          #+#    #+#             */
-/*   Updated: 2023/07/27 15:48:42 by chbachir         ###   ########.fr       */
+/*   Updated: 2023/05/19 12:38:20 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Returns: The substring or NULL if the allocation fails.
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
+{	
 	char	*str;
 	int		i;
 
