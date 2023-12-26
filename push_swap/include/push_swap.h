@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: chbachir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 15:16:09 by chbachir          #+#    #+#             */
-/*   Updated: 2023/12/26 15:51:03 by chbachir         ###   ########.fr       */
+/*   Updated: 2023/12/26 23:58:39 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct s_stack
-{
-	int					nbr;
-	int					index;
-	struct s_stack		*prev;
-	struct s_stack		*next;
-}	t_stack;
-
-
-
-
-/* typedef struct s_stack_node
+typedef struct s_stack_node
 {
 	int					nbr;
 	int					index;
@@ -38,6 +27,18 @@ typedef struct s_stack
 	struct s_stack_node	*target_node;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
-}	t_stack_node; */
+}	t_stack_node;
+
+// Handle errors
+
+// Stack initiation
+
+// Stack utils
+
+// Commands
+
+// Algo
+
+
 
 #endif
