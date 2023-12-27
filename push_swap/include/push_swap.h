@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: chbachir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 15:16:09 by chbachir          #+#    #+#             */
-/*   Updated: 2023/12/27 17:41:00 by chbachir         ###   ########.fr       */
+/*   Updated: 2023/12/27 22:33:30 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "../ft_printf/ft_printf.h"
 # include "../libft/libft.h"
 # include <stdbool.h>
+# include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_stack_node
 {
