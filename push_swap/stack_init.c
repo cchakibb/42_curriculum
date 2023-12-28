@@ -32,7 +32,18 @@ static void	append_node(t_stack_node **stack, int n)
 	if (!node)
 		return ;
 	node->next = NULL;
-	node->nbr = n; // ici
+	node->nbr = n;
+	if (!(*stack))
+	{
+		*stack = node;
+		node->prev = NULL;
+	}
+	else
+	{
+		last_node = get_last_node(*stack);
+		last_node->next = node;
+		last_node->prev = last_node;
+	}
 }
 
 void	init_stack_a(t_stack_node **a, char **av)

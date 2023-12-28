@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: chbachir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 16:54:56 by chbachir          #+#    #+#             */
-/*   Updated: 2023/12/27 17:12:09 by chbachir         ###   ########.fr       */
+/*   Updated: 2023/12/28 12:31:08 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
 	init_stack_a(&a, av);
-	/*if (!stack_sorted(a))
+	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
 			sa(&a);
@@ -35,6 +35,6 @@ int	main(int ac, char **av)
 			sort_three(&a);
 		else
 			push_swap(&a, &b);
-	}*/
+	}
 	return (0);
 }
