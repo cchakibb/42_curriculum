@@ -1,4 +1,4 @@
-#include "include/push_swap.h"
+#include "../../include/push_swap.h"
 
 int	stack_len(t_stack_node *stack)
 {
@@ -13,6 +13,15 @@ int	stack_len(t_stack_node *stack)
 		len++;
 	}
 	return (len);
+}
+
+t_stack_node	*get_last_node(t_stack_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
 }
 
 int	stack_sorted(t_stack_node *stack)

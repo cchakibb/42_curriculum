@@ -18,6 +18,7 @@
 # include <stdbool.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdio.h> // 
 
 typedef struct s_stack_node
 {
@@ -35,9 +36,17 @@ typedef struct s_stack_node
 int		error_input(char *command_line_nbr);
 // Stack initiation
 void	init_stack_a(t_stack_node **a, char **av);
+int		stack_len(t_stack_node *stack);
 // Stack utils
 
 // Commands
+static void		swap(t_stack_node **head);
+void			sa(t_stack_node **a);
+void			sb(t_stack_node **b);
+void			ss(t_stack_node **a, t_stack_node **b);
+
+
+
 
 // Algo
 
