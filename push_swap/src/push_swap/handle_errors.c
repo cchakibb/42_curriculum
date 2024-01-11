@@ -6,7 +6,7 @@ int	is_sign(char c)
 	return (c == '+' || c == '-');
 }
 
-int	duplicates(t_stack *a, int n)
+int	duplicates(t_stack *a, int n) //ok
 {
 	if (!a)
 		return (0);
@@ -19,12 +19,11 @@ int	duplicates(t_stack *a, int n)
 	return (0);
 }
 
-int	error_input(char *cl_nb)
+int	error_input(char *cl_nb) //ok
 {
-	if ( !is_sign(cl_nb[0]) ||
-		!ft_isdigit(cl_nb[0]) )
+	if ( !(is_sign(*cl_nb) || ft_isdigit(*cl_nb)) )
 		return (1);
-	if ( is_sign(cl_nb[0])
+	if ( is_sign(*cl_nb)
 		&& !ft_isdigit(cl_nb[1]) )
 		return (1);
 	while(*++cl_nb)
@@ -35,10 +34,10 @@ int	error_input(char *cl_nb)
 	return (0);
 }
 
-void	free_stack(t_stack **stack)
+void	free_stack(t_stack **stack) //ok
 {
-	t_stack	*temp;
-	t_stack	*current;
+	t_stack		*temp;
+	t_stack		*current;
 
 	if (!stack)
 		return ;
@@ -53,7 +52,7 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void	free_error(t_stack **a) // test *a, should work.
+void	free_error(t_stack **a) //ok // test *a, should work.
 {
 	free_stack(a);
 	ft_printf("Error\n");

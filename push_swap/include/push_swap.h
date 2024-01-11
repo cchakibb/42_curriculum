@@ -39,6 +39,8 @@ void			free_error(t_stack **a);
 
 //***Stack initiation
 void			init_stack_a(t_stack **a, char **argv);
+char			**ft_split(char *s, char c);
+
 
 //***Nodes initiation
 void			init_nodes_a(t_stack *a, t_stack *b);

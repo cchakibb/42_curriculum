@@ -1,6 +1,6 @@
 #include "../../include/push_swap.h"
 
-void	current_index(t_stack *stack)
+void	current_index(t_stack *stack) //ok
 {
 	int	i;
 	int median;
@@ -14,12 +14,14 @@ void	current_index(t_stack *stack)
 		stack->index = i;
 		if (i <= median)
 			stack->above_median = true;
+		else
+			stack->above_median = false;
 		stack = stack->next;
 		++i; // ?
 	}
 }
 
-static void	set_target_a(t_stack *a, t_stack *b)
+static void	set_target_a(t_stack *a, t_stack *b) //ok
 {
 	t_stack		*current_b;
 	t_stack		*target_node;
@@ -53,7 +55,6 @@ static void	cost_analysis_a(t_stack *a, t_stack *b)
 
 	len_a = stack_len(a);
 	len_b = stack_len(b);
-
 	while (a)
 	{
 		a->push_cost = a->index;
@@ -73,7 +74,7 @@ void	set_cheapest(t_stack *stack)
 	t_stack		*cheapest_node;
 
 	if (!stack)
-		return (NULL);
+		return ;
 	cheapest_value = LONG_MAX;
 	while (stack)
 	{

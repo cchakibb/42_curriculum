@@ -18,7 +18,7 @@ of strings obtained by splitting ’s’ using the
 character ’c’ as a delimiter. The array must end
 with a NULL pointer.
 */
-
+/*
 #include "libft.h"
 
 static	char	**to_free(char **pt)
@@ -95,7 +95,7 @@ char	**ft_split(char const *s, char c)
 	}
 	pt[t] = 0;
 	return (pt);
-}
+}*/
 /* 
 int	main(void)
 {

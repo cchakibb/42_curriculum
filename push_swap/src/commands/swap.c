@@ -14,25 +14,25 @@ static void	swap(t_stack **head)
 
 }
 
-void	sa(t_stack **a, bool print_cmd)
+void	sa(t_stack **a, bool print) //ok
 {
 	swap(a);
-	if (!print_cmd)
+	if (!print)
 		ft_printf("sa\n");
 }
 
-void	sb(t_stack **b, bool print_cmd)
+void	sb(t_stack **b, bool print)
 {
 	swap(b);
-	if (!print_cmd)
+	if (!print)
 		ft_printf("sb\n");
 }
 
-void	ss(t_stack **a, t_stack **b, bool print_cmd)
+void	ss(t_stack **a, t_stack **b, bool print)
 {
 	swap(a);
 	swap(b);
-	if (!print_cmd)
+	if (!print)
 		ft_printf("ss\n");
 
 }
