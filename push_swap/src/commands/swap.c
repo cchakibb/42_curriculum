@@ -1,6 +1,6 @@
 #include "../../include/push_swap.h"
 
-static void	swap(t_stack_node **head)
+static void	swap(t_stack **head)
 {
 	if (!*head || !(*head)->next)
 		return ;
@@ -14,25 +14,25 @@ static void	swap(t_stack_node **head)
 
 }
 
-void	sa(t_stack_node **a)
+void	sa(t_stack **a, bool print_cmd)
 {
 	swap(a);
-	//if (!print_cmd)
+	if (!print_cmd)
 		ft_printf("sa\n");
 }
 
-void	sb(t_stack_node **b)
+void	sb(t_stack **b, bool print_cmd)
 {
 	swap(b);
-	//if (!print_cmd)
+	if (!print_cmd)
 		ft_printf("sb\n");
 }
 
-void	ss(t_stack_node **a, t_stack_node **b)
+void	ss(t_stack **a, t_stack **b, bool print_cmd)
 {
 	swap(a);
 	swap(b);
-	//if (!print_cmd)
+	if (!print_cmd)
 		ft_printf("ss\n");
 
 }

@@ -6,7 +6,7 @@
 /*   By: chbachir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 16:54:56 by chbachir          #+#    #+#             */
-/*   Updated: 2023/12/28 12:31:08 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/01/08 13:54:23 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(int ac, char **av)
 {
-	t_stack_node		*a; 
-	t_stack_node		*b;
+	t_stack		*a; 
+	t_stack		*b;
 
 	a = NULL;
 	b = NULL;
@@ -28,11 +28,12 @@ int	main(int ac, char **av)
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
-			sa(&a);
+			sa(&a, false);
 		else if (stack_len(a) == 3)
 			sort_three(&a);
 		else
-			push_swap(&a, &b);
+			sort_stacks(&a, &b);
 	}
+	free_stack(&a);
 	return (0);
 }

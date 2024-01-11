@@ -21,14 +21,14 @@ static long	ft_atol(char *s)
 	return (result * sign);
 }
 
-static void	append_node(t_stack_node **stack, int n)
+static void	append_node(t_stack **stack, int n)
 {
-	t_stack_node *node;
-	t_stack_node *last_node;
+	t_stack *node;
+	t_stack *last_node;
 
 	if (!stack)
 		return ;
-	node = malloc(sizeof(t_stack_node));
+	node = malloc(sizeof(t_stack));
 	if (!node)
 		return ;
 	node->next = NULL;
@@ -46,7 +46,7 @@ static void	append_node(t_stack_node **stack, int n)
 	}
 }
 
-void	init_stack_a(t_stack_node **a, char **av)
+void	init_stack_a(t_stack **a, char **av)
 {
 	long	n;
 	int		i;
@@ -59,7 +59,43 @@ void	init_stack_a(t_stack_node **a, char **av)
 		n = ft_atol(av[i]);
 		if (n < INT_MIN || INT_MAX > n)
 			free_error(a);
+		if (duplicates(*a, (int)n));
+			free_error(a);
 		append_node(a, (int)n);
 		i++;
+	}
+}
+
+t_stack	*get_cheapest(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}
+
+void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
+{
+	while (*stack != top_node)
+	{
+		if ('a' == stack_name)
+		{
+			if (top_node->above_median)
+				ra(stack, false);
+			else
+				rra(stack, false);
+		}
+		else if ('b' == stack_name)
+		{
+			if (top_node->above_median)
+				rb(stack, false);
+			else
+				rrb(stack, false);
+		}
 	}
 }
