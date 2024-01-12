@@ -1,14 +1,14 @@
 #include "../../include/push_swap.h"
 
-void	sort_three(t_stack **a) //ok
+void	sort_three(t_stack **a) //Define a function that handles when stack `a` has three nodes, and sorts it
 {
-	t_stack *greatest_node;
+	t_stack	*biggest_node; //To store a pointer to the biggest node in stack `a`
 
-	greatest_node = get_max(*a);
-	if (greatest_node == *a)
-		ra(a, false);
-	else if ((*a)->next == greatest_node)
-		rra(a, false);
-	if ((*a)->nbr > (*a)->next->nbr)
-		sa(a, false);
+	biggest_node = get_max(*a);
+	if (biggest_node == *a) //Check if the current node is the biggest
+		ra(a, false); //If so, rotate the top node to the bottom of the stack
+	else if ((*a)->next == biggest_node) //Check if the second node is the biggest
+		rra(a, false); //If so, reverse rotate the bottom node, to the top of the stack
+	if ((*a)->nbr > (*a)->next->nbr) //Check if the bottom node is the biggest, but the top node is higher than the second node
+		sa(a, false); //If so, simply swap the top and second nodes
 }

@@ -1,58 +1,51 @@
 #include "../../include/push_swap.h"
 
-
-int	is_sign(char c)
+int	error_input(char *str_n) //Define a funtion to handle syntax errors, and returns `1` for `error` should any of the following conditions are met
 {
-	return (c == '+' || c == '-');
+	if (!(*str_n == '+' || *str_n == '-' || (*str_n >= '0' && *str_n <= '9'))) //Check if the first character of the input string does not contain a sign or a digit
+		return (1);
+	if ((*str_n == '+' || *str_n == '-') && !(str_n[1] >= '0' && str_n[1] <= '9')) //Check if the first character of the input string contains a sign, but the second character does not contain a digit
+		return (1);
+	while (*++str_n) //If the error conditions above are passed, pre-increment to point to the next character in the string, and loop until the end of the string is reached
+	{
+		if (!(*str_n >= '0' && *str_n <= '9')) //Check if the next character in the string is not a digit
+			return (1);
+	}
+	return (0);
 }
 
-int	duplicates(t_stack *a, int n) //ok
+int	duplicates(t_stack *a, int n) //Define a function that checks for duplicate input numbers in stack `a`
 {
-	if (!a)
+	if (!a) //Check for an empty stack
 		return (0);
-	while (a)
+	while (a) //Loop until the end of stack `a` is reached
 	{
-		if (a->nbr == n)
+		if (a->nbr == n) //Check if the current node's value is equal to `n`. Refer to `init_stack_a()`
 			return (1);
-		a = a->next;
+		a = a->next; //Move to the next node to check for duplicates
 	}
 	return (0);
 }
 
-int	error_input(char *cl_nb) //ok
+void	free_stack(t_stack **stack) //Define a function to free a stack if there are errors
 {
-	if ( !(is_sign(*cl_nb) || ft_isdigit(*cl_nb)) )
-		return (1);
-	if ( is_sign(*cl_nb)
-		&& !ft_isdigit(cl_nb[1]) )
-		return (1);
-	while(*++cl_nb)
-	{
-		if ( !ft_isdigit(*cl_nb) )
-			return (1);
-	}
-	return (0);
-}
+	t_stack	*tmp; //To store the next node in the stack before the current node is freed, because once a node is freed, you can't access its next pointer
+	t_stack	*current;
 
-void	free_stack(t_stack **stack) //ok
-{
-	t_stack		*temp;
-	t_stack		*current;
-
-	if (!stack)
+	if (!stack) //Check for an empty stack
 		return ;
 	current = *stack;
-	while (current)
+	while (current) //As long as a node exist in the stack
 	{
-		temp = current->next;
-		current->nbr = 0;
-		free(current);
-		current = temp;
+		tmp = current->next; //Assign to `tmp` the pointer to the next node
+		current->nbr = 0; //Assigning the node to `0` before freeing is not strictly necessary but it can help catch potential bugs such as memory-leaks and improve debugging
+		free(current); //Free the current node, deallocating the memory occupied by that node
+		current = tmp; //Assign `tmp` as the current first node
 	}
 	*stack = NULL;
 }
 
-void	free_error(t_stack **a) //ok // test *a, should work.
+void	free_error(t_stack **a) //Define a function that, upon encountering a unique error, to free the stack and print an error message
 {
 	free_stack(a);
 	ft_printf("Error\n");
