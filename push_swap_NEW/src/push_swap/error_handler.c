@@ -6,13 +6,13 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:26:49 by chbachir          #+#    #+#             */
-/*   Updated: 2024/01/15 14:07:51 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/01/17 13:19:39 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	error_input(char *str_n) //Define a funtion to handle syntax errors, and returns `1` for `error` should any of the following conditions are met
+int	error_input(char *str_n) //handles syntax errors, returns `1` for `error` should any of the following conditions are met
 {
 	if (!(*str_n == '+' || *str_n == '-' || (*str_n >= '0' && *str_n <= '9'))) //Check if the first character of the input string does not contain a sign or a digit
 		return (1);
@@ -26,7 +26,7 @@ int	error_input(char *str_n) //Define a funtion to handle syntax errors, and ret
 	return (0);
 }
 
-int	dulicates(t_stack *a, int n) //Define a function that checks for duplicate input numbers in stack `a`
+int	duplicates(t_stack *a, int n) //checks for duplicate input numbers in stack `a`
 {
 	if (!a)
 		return (0);
@@ -39,22 +39,25 @@ int	dulicates(t_stack *a, int n) //Define a function that checks for duplicate i
 	return (0);
 }
 
-void	free_stack(t_stack **stack)
+void	free_stack(t_stack **stack) //free a stack if there are errors
 {
-	t_stack	*tmp;
-	t_stack *current;
+	t_stack		*temp;
+	t_stack		*current;
 
 	if (!stack)
 		return ;
 	current = *stack;
 	while (current)
 	{
-		
+		temp = current->next;
+		current->nbr = 0;
+		free(current);
+		current = temp;
 	}
-	
+	*stack = NULL;
 }
 
-void	free_error(t_stack **a)
+void	free_error(t_stack **a) //Define a function that, upon encountering a unique error, to free the stack and print an error message
 {
 	free_stack(a);
 	ft_printf("Error\n");
