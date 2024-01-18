@@ -2,7 +2,7 @@
 
 static void	swap(t_stack **head) //Define a function that swaps the positions of the top node and second node of a stack
 {
-	if (!*head || !(*head)->next) //Check if the stop node, or second node of a stack exists
+	if (!*head || !(*head)->next) //Check if the first node, or second node of a stack exists
 		return ;
 	*head = (*head)->next; //Update `head` to point to the next node, effectively swapping the first and second nodes
 	(*head)->prev->prev = *head; //Update the `prev` pointer of the node before the `new head` to point to the `new head`
