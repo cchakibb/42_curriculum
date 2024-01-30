@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: chbachir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/01/18 13:43:59 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:21:16 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void			free_error(t_stack **a);
 // Stack utils //
 int				stack_len(t_stack *stack);
 t_stack			*get_last_node(t_stack *stack);
+bool			stack_sorted(t_stack *stack);
 // ______________________________________________________
 
 // Commands
