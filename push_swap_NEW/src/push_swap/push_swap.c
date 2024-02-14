@@ -6,7 +6,7 @@
 /*   By: chbachir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:05:39 by chbachir          #+#    #+#             */
-/*   Updated: 2024/01/30 11:10:26 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/01/30 13:49:19 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ int	main (int ac, char **av)
 	{
 		if (stack_len(a) == 2)
 			sa(&a);
+		else if (stack_len(a) == 3)
+		{
+			//
+		}
 	}
 	free_stack(&a);
 	return (0);
