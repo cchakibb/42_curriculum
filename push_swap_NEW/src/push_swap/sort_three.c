@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 13:05:39 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/15 14:10:07 by chbachir         ###   ########.fr       */
+/*   Created: 2024/02/15 11:32:22 by chbachir          #+#    #+#             */
+/*   Updated: 2024/02/15 12:10:03 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	main (int ac, char **av)
+void	sort_three(t_stack **a)
 {
-	t_stack *a;
-	t_stack *b;
-	
-	a = NULL;
-	b = NULL;
-	if (1 == ac || (2 == ac && !av[1][0]))
-		return (1);
-	else if (2 == ac)
-		av = ft_split(av[1], ' ');
-	init_stack_a(&a, av + 1);
-	if (!stack_sorted(a))
-	{
-		if (stack_len(a) == 2)
-			sa(&a);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else
-			//sort_stacks(&a, &b);
-	}
-	free_stack(&a);
-	return (0);
+	t_stack	*biggest_node;
+
+	biggest_node = get_max(*a);
+	if (biggest_node == *a)
+		ra(a);
+	else if ((*a)->next == biggest_node)
+		rra(a);
+	if ((*a)->nbr > (*a)->next->nbr)
+		sa(a);
 }
+
+

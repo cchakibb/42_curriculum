@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chbachir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/01/30 11:21:16 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/15 14:06:01 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,29 @@ void			free_error(t_stack **a);
 int				stack_len(t_stack *stack);
 t_stack			*get_last_node(t_stack *stack);
 bool			stack_sorted(t_stack *stack);
+t_stack			*get_max(t_stack *stack);
 // ______________________________________________________
 
 // Commands
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
+
+void	ra(t_stack **a);
+void	rb(t_stack **b);
+void	rr(t_stack **a, t_stack **b);
+
+void	rra(t_stack **a);
 // ______________________________________________________
 
+// Stack initiation
 char			**ft_split(char *s, char c);
 int				duplicates(t_stack *a, int n);
 void			init_stack_a(t_stack **a, char **av);
+
+//______________________________________________________
+
+// Algorithm
+void			sort_three(t_stack **a);
 
 #endif
