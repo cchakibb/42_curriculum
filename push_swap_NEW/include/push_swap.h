@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/16 14:07:07 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/18 16:05:37 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ void			init_stack_a(t_stack **a, char **av);
 
 // Algorithm
 void			sort_three(t_stack **a);
-void			sort_stacks(t_stack **a, t_stack **b);
+//void			sort_stacks(t_stack **a, t_stack **b);
 
 #endif
