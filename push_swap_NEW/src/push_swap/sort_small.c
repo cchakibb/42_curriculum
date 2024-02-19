@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 11:32:22 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/15 12:10:03 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:40:15 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,22 @@ void	sort_three(t_stack **a)
 		rra(a);
 	if ((*a)->nbr > (*a)->next->nbr)
 		sa(a);
+}
+
+void	sort_five(t_stack **a, t_stack **b)
+{
+	t_stack	*max;
+	while (stack_len(*a) > 3)
+		pb(b, a);
+	sort_three(a);
+	max = get_max(*a);
+	while (*b)
+	{
+		pa(a, b);
+		if ((*a)->nbr > max->nbr)
+			ra(a);
+		
+	}
 }
 
 

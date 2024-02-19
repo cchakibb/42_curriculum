@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/18 16:05:37 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/19 12:58:53 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,10 @@ void	ss(t_stack **a, t_stack **b);
 void	ra(t_stack **a);
 void	rb(t_stack **b);
 void	rr(t_stack **a, t_stack **b);
-
 void	rra(t_stack **a);
+
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **b, t_stack **a);
 // ______________________________________________________
 
 // Stack initiation
@@ -64,6 +66,7 @@ void			init_stack_a(t_stack **a, char **av);
 
 // Algorithm
 void			sort_three(t_stack **a);
+void			sort_five(t_stack **a, t_stack **b);
 //void			sort_stacks(t_stack **a, t_stack **b);
 
 #endif
