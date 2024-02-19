@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/19 12:58:53 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/19 21:35:15 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int				stack_len(t_stack *stack);
 t_stack			*get_last_node(t_stack *stack);
 bool			stack_sorted(t_stack *stack);
 t_stack			*get_max(t_stack *stack);
+t_stack			*get_min(t_stack *stack);
 // ______________________________________________________
 
 // Commands

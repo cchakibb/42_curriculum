@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 13:01:40 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/15 13:51:20 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/19 21:22:38 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,24 @@ t_stack	*get_max(t_stack *stack)
 		stack = stack->next;
 	}
 	return (max_node);
+}
+
+t_stack	*get_min(t_stack *stack)
+{
+	long	min;
+	t_stack	*min_node;
+
+	if (!stack)
+		return (NULL);
+	min = LONG_MAX;
+	while (stack)
+	{
+		if (stack->nbr < min)
+		{
+			min = stack->nbr;
+			min_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (min_node);
 }
