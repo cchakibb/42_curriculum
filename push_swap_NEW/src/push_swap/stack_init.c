@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chbachir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:22:17 by chbachir          #+#    #+#             */
-/*   Updated: 2024/01/30 11:16:50 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:50:44 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static void	append_node(t_stack **stack, int n)
 	t_stack	*node;
 	t_stack	*last_node;
 
-	if (!stack)
-		return ;
+	/* if (!stack)
+		return ; */
 	node = malloc(sizeof(t_stack));
 	if (!node)
 		return ;

@@ -4,7 +4,7 @@
 CC = cc
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
 # Include directories
 INCLUDES = -I./include -I./libft -I./ft_printf
