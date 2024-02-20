@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 11:32:22 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/20 14:40:13 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:35:55 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,30 @@ void	sort_three(t_stack **a)
 
 void	sort_five(t_stack **a, t_stack **b)
 {
-	int		count;
-	t_stack	*next;
-	b = NULL;
-	count = 0;
-	next = (*a)->next;
-	while (a)
+	int	count;
+	int i;
+
+	i = 0;
+	while (i < 5)
 	{
-		if ((*a)->nbr < (*a)->next->nbr)
-			count++;	
-		a = &(*a)->next;
-	}
-	ft_printf("counter %d", count);
+        count = 0;
+        if ((*a)->nbr < (*a)->next->nbr)
+            count++;
+        if ((*a)->nbr < (*a)->next->next->nbr)
+            count++;
+        if ((*a)->nbr < (*a)->next->next->next->nbr)
+            count++;
+        if (((*a)->next->next->next->next) && (i < 4) && ((*a)->nbr < (*a)->next->next->next->next->nbr))
+            count++;
+        if (count < 3)
+            ra(a);
+        else if (count >= 3)
+			pb(b, a);
+		i++; 
+    }
 }
+	//print_stacks(a, b);
 
-
-	
 /*	t_stack	*max;
 	t_stack *min;
 	t_stack *mid_a_node;
@@ -78,6 +86,6 @@ void	sort_five(t_stack **a, t_stack **b)
 		}
 		else
 			pa(a, b);
-	} */
+	}*/
 
 
