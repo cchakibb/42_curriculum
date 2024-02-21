@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:05:39 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/20 18:52:49 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/21 10:27:52 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	main (int ac, char **av)
 			sa(&a);
 		else if (stack_len(a) == 3)
 			sort_three(&a);
+		/* else if (stack_len(a) == 4)
+			sort_four(&a, &b); */
 		else if (stack_len(a) == 4 || stack_len(a) == 5)
 			sort_five(&a, &b);
 		/* else
