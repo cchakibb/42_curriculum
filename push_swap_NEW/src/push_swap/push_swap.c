@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:05:39 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/21 10:27:52 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:15:23 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,12 @@ int	main (int ac, char **av)
 	else if (2 == ac)
 		av = ft_split(av[1], ' ');
 	init_stack_a(&a, av + 1);
-	if (ac == 6)
-	{
-		sort_five(&a, &b);
-	}
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
 			sa(&a);
 		else if (stack_len(a) == 3)
 			sort_three(&a);
-		/* else if (stack_len(a) == 4)
-			sort_four(&a, &b); */
 		else if (stack_len(a) == 4 || stack_len(a) == 5)
 			sort_five(&a, &b);
 		/* else
