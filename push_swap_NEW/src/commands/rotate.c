@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:10:21 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/15 14:08:40 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/22 21:45:53 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	rotate(t_stack **stack)
 {
-	t_stack *last_node;
+	t_stack	*last_node;
 
 	if (!*stack || !(*stack)->next)
 		return ;

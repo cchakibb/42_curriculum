@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 13:50:29 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/15 10:56:14 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/22 21:45:19 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	push(t_stack **dst, t_stack **src)
 {
 	t_stack	*push_node;
+
 	if (!*src)
 		return ;
 	push_node = *src;
