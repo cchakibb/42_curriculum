@@ -6,11 +6,13 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:05:39 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/23 14:36:46 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:27:50 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+int number_of_moves = 0;
 
 int	main (int ac, char **av)
 {
@@ -34,8 +36,9 @@ int	main (int ac, char **av)
 			sort_five(&a, &b);
 		else
 			sort_stacks(&a, &b);
-		// print_stacks(a, b);
 	}
+	//print_stacks(a, b);
+	ft_printf("Number of moves: %d\n", number_of_moves);
 	free_stack(&a);
 	return (0);
 }

@@ -6,12 +6,14 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/23 14:25:37 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:27:53 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+extern int number_of_moves;
 
 # include "../ft_printf/ft_printf.h"
 # include "../libft/libft.h"
@@ -73,6 +75,7 @@ void			set_index(t_stack *stack);
 void			sort_three(t_stack **a);
 void			sort_five(t_stack **a, t_stack **b);
 void			sort_stacks(t_stack **a, t_stack **b);
+void			move_all_to_a(t_stack **a, t_stack **b);
 
 
 // helper

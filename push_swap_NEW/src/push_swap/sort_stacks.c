@@ -6,11 +6,20 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:07:54 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/25 14:31:20 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:45:43 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+void	move_all_to_a(t_stack **a, t_stack **b)
+{
+	while (stack_len(*b) > 0)
+	{
+		pa(a, b);
+		*b = (*b)->next;
+	}
+}
 
 void	set_index(t_stack *stack)
 {
@@ -21,10 +30,10 @@ void	set_index(t_stack *stack)
 	i = 0;
 	while (stack)
 	{
-		stack->index = i;
-		ft_printf("i %d = n %d\n", stack->index, stack->nbr);
-		stack = stack->next;
 		i++;
+		stack->index = i;
+		//ft_printf("i %d = n %d\n", stack->index, stack->nbr);
+		stack = stack->next;
 	}
 }
 
@@ -34,9 +43,38 @@ void	sort_stacks(t_stack **a, t_stack **b)
 	int			mid_stack;
 	t_stack		*min_node;
 
-	//b = NULL;
 	len_a = stack_len(*a);
 	mid_stack = len_a / 2;
-	min_node = get_min(*a);
 	set_index(*a);
+	
+	
+	while (stack_len(*a) >= 1)
+	{
+		min_node = get_min(*a);
+		if (len_a % 2 == 0)
+		{
+			while ((*a)->nbr != min_node->nbr)
+			{
+				if (min_node->index > mid_stack)
+					rra(a);
+				else
+					ra(a);
+				set_index(*a);
+			}
+		}
+		if (len_a % 2 == 1)
+		{
+			while ((*a)->nbr != min_node->nbr)
+			{
+				if (min_node->index > mid_stack + 1)
+					rra(a);
+				else
+					ra(a);
+				set_index(*a);
+			}
+		}
+		pb(b, a);
+	}
+	move_all_to_a(a, b);
 }
+
