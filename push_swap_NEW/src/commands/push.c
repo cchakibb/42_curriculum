@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 13:50:29 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/26 15:28:08 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:30:44 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,15 @@ static void	push(t_stack **dst, t_stack **src)
 void	pa(t_stack **a, t_stack **b)
 {
 	push(a, b);
+	(*a)->list_size++;
 	ft_printf("pa\n");
 	number_of_moves++;
-
 }
 
 void	pb(t_stack **b, t_stack **a)
 {
 	push(b, a);
+	(*a)->list_size--;
 	ft_printf("pb\n");
 	number_of_moves++;
 

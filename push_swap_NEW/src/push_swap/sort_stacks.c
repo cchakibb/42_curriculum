@@ -6,12 +6,42 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:07:54 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/26 15:45:43 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:47:42 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
+void	set_index(t_stack *stack)
+{
+	int	i;
+
+	if (!stack)
+		return ;
+	i = 0;
+	while (stack)
+	{
+		stack->index = i;
+		i++;
+		//ft_printf("i %d = n %d\n", stack->index, stack->nbr);
+		stack = stack->next;
+	}
+}
+
+void	sort_one_hundred(t_stack **a, t_stack **b)
+{
+	int	mid_stack;
+
+	set_index(*a);
+	mid_stack = stack_len(*a) / 2;
+
+	while ((*a)->index < mid_stack)
+			pb(b, a);
+}
+
+
+
+/* 
 void	move_all_to_a(t_stack **a, t_stack **b)
 {
 	while (stack_len(*b) > 0)
@@ -76,5 +106,4 @@ void	sort_stacks(t_stack **a, t_stack **b)
 		pb(b, a);
 	}
 	move_all_to_a(a, b);
-}
-
+} */

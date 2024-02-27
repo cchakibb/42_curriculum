@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:22:17 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/23 14:52:23 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:29:53 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ static void	append_node(t_stack **stack, int n)
 		last_node->next = node;
 		node->prev = last_node;
 	}
-
-	
 }
 
 void	init_stack_a(t_stack **a, char **av) //initiates stack `a` by handling any errors and appending required nodes to complete a stack
@@ -78,4 +76,5 @@ void	init_stack_a(t_stack **a, char **av) //initiates stack `a` by handling any 
 		append_node(a, (int)n);
 		i++;
 	}
+	(*a)->list_size = stack_len(*a);
 }
