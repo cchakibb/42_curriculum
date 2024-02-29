@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:22:17 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/27 14:29:53 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/29 13:42:52 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static long	ft_atol(const char *s) //converts a string into a long value
 
 static void	append_node(t_stack **stack, int n)
 {
-	t_stack	*node;
-	t_stack	*last_node;
+	t_stack			*node;
+	t_stack			*last_node;
 
 	/* if (!stack)
 		return ; */
@@ -76,5 +76,4 @@ void	init_stack_a(t_stack **a, char **av) //initiates stack `a` by handling any 
 		append_node(a, (int)n);
 		i++;
 	}
-	(*a)->list_size = stack_len(*a);
 }

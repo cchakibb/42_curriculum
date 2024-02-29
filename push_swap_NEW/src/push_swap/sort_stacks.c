@@ -6,13 +6,28 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:07:54 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/27 12:47:42 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/02/29 14:18:21 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	set_index(t_stack *stack)
+
+
+
+
+void sort_stacks(t_stack **a, t_stack **b)
+{
+	b = NULL; //remove
+	t_stack	*copy;
+
+	copy = copy_a(*a);
+	
+
+}
+
+
+/* void	set_index(t_stack *stack)
 {
 	int	i;
 
@@ -37,7 +52,7 @@ void	sort_one_hundred(t_stack **a, t_stack **b)
 
 	while ((*a)->index < mid_stack)
 			pb(b, a);
-}
+} */
 
 
 
