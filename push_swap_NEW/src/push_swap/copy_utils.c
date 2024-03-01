@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:21:20 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/29 14:48:33 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/01 09:48:35 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void swap_copy(t_stack *node_one, t_stack *node_two)
 }  
 
 
-void bubbleSort(t_stack *copy) {
-    int swapped, i;  
+void sort_copy(t_stack *copy) {
+    int swapped;  
     t_stack *ptr1;  
     t_stack *lptr = NULL;  
   

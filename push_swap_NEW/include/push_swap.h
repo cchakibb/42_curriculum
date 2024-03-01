@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/29 14:45:36 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/01 13:18:10 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stack
 {
 	int				nbr;
 	int				index;
-	bool			above_median;
+	bool			below_median;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 	
@@ -70,7 +70,7 @@ void			init_stack_a(t_stack **a, char **av);
 //______________________________________________________
 
 //***Nodes initiation
-void			set_index(t_stack *stack);
+int			set_index(t_stack *stack);
 //______________________________________________________
 
 // Algorithm
@@ -90,7 +90,7 @@ void	print_stacks(t_stack *a, t_stack *b);
 //void	print_stack_helper(t_stack_helper *stack);
 //______________________________________________________
 
-void bubbleSort(t_stack *start);
+void sort_copy(t_stack *start);
 void swap_copy(t_stack *node_one, t_stack *node_two);
 
 
