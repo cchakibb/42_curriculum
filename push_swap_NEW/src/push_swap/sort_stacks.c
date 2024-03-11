@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:07:54 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/01 14:36:49 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:19:40 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,26 +45,28 @@ int	set_index(t_stack *stack)
 
 void sort_stacks(t_stack **a, t_stack **b)
 {
-	b = NULL; //remove
+	//b = NULL; //remove
 	t_stack		*copy;
-	int			median_value_copy;
+	int			copy_median;
 	int			a_median;
 
 	copy = copy_a(*a);
 	sort_copy(copy);
 	a_median = set_index(*a);
-	median_value_copy = set_index(copy);
+	copy_median = set_index(copy);
 
-	while (stack_len(a) > 5)
+	while (stack_len(*a) > 5)
 	{
-		if ((*a)->nbr <= median_value_copy)
+		if ((*a)->nbr <= copy_median) 
 			pb(b, a);
-		else if ((*a)->index <= (stack_len(*a) / 2))
+		else
+			ra(a);
+		/*else if ((*a)->index <= (stack_len(*a) / 2))
 			ra(a);
 		else
-			rra(a);
+			rra(a);*/
 	}
-	print_stacks(a, b);
+	print_stacks(*a, *b);
 	// stopped here
 }
 
