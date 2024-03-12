@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:07:54 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/11 12:19:40 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/12 11:46:30 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,19 @@ int	set_index(t_stack *stack)
 	return (median_value);
 }
 
-
-
 void sort_stacks(t_stack **a, t_stack **b)
 {
-	//b = NULL; //remove
 	t_stack		*copy;
 	int			copy_median;
 	int			a_median;
+	int			iterations;
 
 	copy = copy_a(*a);
 	sort_copy(copy);
 	a_median = set_index(*a);
 	copy_median = set_index(copy);
-
-	while (stack_len(*a) > 5)
+	iterations = stack_len(*a);
+	while (iterations)
 	{
 		if ((*a)->nbr <= copy_median) 
 			pb(b, a);
@@ -65,7 +63,11 @@ void sort_stacks(t_stack **a, t_stack **b)
 			ra(a);
 		else
 			rra(a);*/
+		iterations--;
 	}
+	sort_three(a);
+	rev_sort_five(b, a);
+	move_all_to_a(a, b);
 	print_stacks(*a, *b);
 	// stopped here
 }
@@ -100,17 +102,16 @@ void	sort_one_hundred(t_stack **a, t_stack **b)
 
 
 
-/* 
+
 void	move_all_to_a(t_stack **a, t_stack **b)
 {
 	while (stack_len(*b) > 0)
 	{
 		pa(a, b);
-		*b = (*b)->next;
 	}
 }
 
-void	set_index(t_stack *stack)
+/*void	set_index(t_stack *stack)
 {
 	int	i;
 

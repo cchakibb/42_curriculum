@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/01 13:18:10 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/12 11:33:24 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void	ra(t_stack **a);
 void	rb(t_stack **b);
 void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
+void	rrb(t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
 
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **b, t_stack **a);
@@ -77,7 +79,10 @@ int			set_index(t_stack *stack);
 void			sort_three(t_stack **a);
 void			sort_five(t_stack **a, t_stack **b);
 void			sort_stacks(t_stack **a, t_stack **b);
-//void			move_all_to_a(t_stack **a, t_stack **b);
+void			rev_sort_three(t_stack **a);
+void			rev_sort_five(t_stack **a, t_stack **b);
+
+void			move_all_to_a(t_stack **a, t_stack **b);
 //______________________________________________________
 
 // Stack_helper
