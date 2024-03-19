@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:21:20 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/01 09:48:35 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:48:33 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void sort_copy(t_stack *copy) {
     }
 }
 
-t_stack *copy_a(t_stack *a) {
+t_stack *copy_stack(t_stack *a) {
     t_stack *new_head = NULL;  // Head of the copied list
     t_stack **current = &new_head;  // Pointer to track the end of the new list
 

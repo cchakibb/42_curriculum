@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/12 11:33:24 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:53:15 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_stack			*get_last_node(t_stack *stack);
 bool			stack_sorted(t_stack *stack);
 t_stack			*get_max(t_stack *stack);
 t_stack			*get_min(t_stack *stack);
-t_stack			*copy_a(t_stack *a);
+t_stack			*copy_stack(t_stack *stack);
 // ______________________________________________________
 
 // Commands
@@ -78,7 +78,7 @@ int			set_index(t_stack *stack);
 // Algorithm
 void			sort_three(t_stack **a);
 void			sort_five(t_stack **a, t_stack **b);
-void			sort_stacks(t_stack **a, t_stack **b);
+void			prepare_stacks(t_stack **a, t_stack **b);
 void			rev_sort_three(t_stack **a);
 void			rev_sort_five(t_stack **a, t_stack **b);
 

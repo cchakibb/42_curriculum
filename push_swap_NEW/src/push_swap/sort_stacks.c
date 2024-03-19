@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:07:54 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/12 11:46:30 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:32:48 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,17 @@ int	set_index(t_stack *stack)
 	return (median_value);
 }
 
-void sort_stacks(t_stack **a, t_stack **b)
+
+
+
+void prepare_stacks(t_stack **a, t_stack **b)
 {
 	t_stack		*copy;
 	int			copy_median;
 	int			a_median;
 	int			iterations;
 
-	copy = copy_a(*a);
+	copy = copy_stack(*a);
 	sort_copy(copy);
 	a_median = set_index(*a);
 	copy_median = set_index(copy);
@@ -59,21 +62,19 @@ void sort_stacks(t_stack **a, t_stack **b)
 			pb(b, a);
 		else
 			ra(a);
-		/*else if ((*a)->index <= (stack_len(*a) / 2))
-			ra(a);
-		else
-			rra(a);*/
 		iterations--;
 	}
-	sort_three(a);
-	rev_sort_five(b, a);
-	move_all_to_a(a, b);
+	if (stack_len(*a) )
+	//sort_three(a);
+	//rev_sort_five(b, a);
+	//move_all_to_a(a, b);
 	print_stacks(*a, *b);
 	// stopped here
 }
+// ./push_swap 8 3 5 11 4 9 6 2 10 1 7 38 -6
 
-
-/* void	set_index(t_stack *stack)
+/*
+void	set_index(t_stack *stack)
 {
 	int	i;
 
@@ -88,21 +89,11 @@ void sort_stacks(t_stack **a, t_stack **b)
 		stack = stack->next;
 	}
 }
-
-void	sort_one_hundred(t_stack **a, t_stack **b)
-{
-	int	mid_stack;
-
-	set_index(*a);
-	mid_stack = stack_len(*a) / 2;
-
-	while ((*a)->index < mid_stack)
-			pb(b, a);
-} */
+*/
 
 
 
-
+/*
 void	move_all_to_a(t_stack **a, t_stack **b)
 {
 	while (stack_len(*b) > 0)
@@ -110,23 +101,10 @@ void	move_all_to_a(t_stack **a, t_stack **b)
 		pa(a, b);
 	}
 }
+*/
 
-/*void	set_index(t_stack *stack)
-{
-	int	i;
 
-	if (!stack)
-		return ;
-	i = 0;
-	while (stack)
-	{
-		i++;
-		stack->index = i;
-		//ft_printf("i %d = n %d\n", stack->index, stack->nbr);
-		stack = stack->next;
-	}
-}
-
+/*
 void	sort_stacks(t_stack **a, t_stack **b)
 {
 	int			len_a;
