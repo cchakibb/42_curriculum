@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:05:39 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/20 14:21:37 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/21 13:32:21 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 int number_of_moves = 0;
 
-int	main (int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_stack 		*a;
-	t_stack 		*b;
-	
-	
+	t_stack		*a;
+	t_stack		*b;
+
 	a = NULL;
 	b = NULL;
 	if (1 == ac || (2 == ac && !av[1][0]))
@@ -36,10 +35,9 @@ int	main (int ac, char **av)
 		else if (stack_len(a) == 4 || stack_len(a) == 5)
 			sort_five(&a, &b);
 		else if (stack_len(a) > 5)
-			prepare_stacks(&a, &b);
+			sort_stacks(&a, &b);
 	}
-	
-	//print_stacks(a, b);
+	print_stacks(a, b);
 	ft_printf("Number of moves: %d\n", number_of_moves);
 	free_stack(&a);
 	return (0);
