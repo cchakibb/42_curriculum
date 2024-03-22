@@ -6,11 +6,56 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 13:01:40 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/29 14:25:03 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:11:09 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+int	find_index(t_stack *stack, int value)
+{
+	if (!stack)
+		return (-1);
+	while (stack)
+	{
+		if (stack->nbr == value)
+			return (stack->index);
+		stack = stack->next;
+	}
+	return (-1);
+}
+
+void	set_index(t_stack *stack)
+{
+	int	i;
+
+	if (!stack)
+		return ;
+	i = 0;
+	while (stack)
+	{
+		stack->index = i;
+		i++;
+		stack = stack->next;
+	}
+}
+
+int	get_median_value(t_stack *stack)
+{
+	t_stack		*copy;
+	int			median_value;
+	int			median_index;
+
+	copy = copy_stack(stack);
+	sort_copy(copy);
+	median_index = (stack_len(copy) / 2);
+	while (median_index--)
+	{
+		copy = copy->next;
+		median_value = copy->nbr;
+	}
+	return (median_value);
+}
 
 int	stack_len(t_stack *stack)
 {
@@ -86,4 +131,10 @@ t_stack	*get_min(t_stack *stack)
 		stack = stack->next;
 	}
 	return (min_node);
+}
+
+void	move_all_to_a(t_stack **a, t_stack **b)
+{
+	while (*b)
+		pa(a, b);
 }

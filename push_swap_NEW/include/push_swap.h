@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/21 13:49:40 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/22 11:56:20 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,14 @@ void			free_error(t_stack **a);
 
 // Stack utils //
 int				stack_len(t_stack *stack);
-t_stack			*get_last_node(t_stack *stack);
 bool			stack_sorted(t_stack *stack);
+t_stack			*get_last_node(t_stack *stack);
 t_stack			*get_max(t_stack *stack);
 t_stack			*get_min(t_stack *stack);
 t_stack			*copy_stack(t_stack *stack);
+int				find_index(t_stack *stack, int value);
+void			set_index(t_stack *stack);
+int				get_median_value(t_stack *stack);
 void			split_a(t_stack **a, t_stack **b);
 void			split_b(t_stack **a, t_stack **b);
 // ______________________________________________________
@@ -68,13 +71,11 @@ void	pb(t_stack **b, t_stack **a);
 
 // Stack initiation
 char			**ft_split(char *s, char c);
-int				duplicates(t_stack *a, int n);
 void			init_stack_a(t_stack **a, char **av);
 
 //______________________________________________________
 
 //***Nodes initiation
-int				get_median_value(t_stack *stack);
 //______________________________________________________
 
 // Algorithm
@@ -87,14 +88,9 @@ void			rev_sort_five(t_stack **a, t_stack **b);
 void			move_all_to_a(t_stack **a, t_stack **b);
 //______________________________________________________
 
-// Stack_helper
-void	init_stack_helper(t_stack *a);
-//void	sort_stack_helper(t_stack_helper **stack);
-
 
 // helper functions
 void	print_stacks(t_stack *a, t_stack *b);
-//void	print_stack_helper(t_stack_helper *stack);
 //______________________________________________________
 
 void sort_copy(t_stack *start);

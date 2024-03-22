@@ -6,36 +6,19 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:07:54 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/21 13:48:45 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/22 13:27:02 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
 
-int	get_median_value(t_stack *stack)
-{
-	t_stack		*copy;
-	int			median_value;
-	int			median_index;
-
-	copy = copy_stack(stack);
-	sort_copy(copy);
-	median_index = (stack_len(copy) / 2);
-	while (median_index--)
-	{
-		copy = copy->next;
-		median_value = copy->nbr;
-	}
-	return (median_value);
-}
-
 void	split_a(t_stack **a, t_stack **b)
 {
 	int	compare_iterations;
 	int	median;
 
-	median = get_median_value(*a);
+	median = get_median_value(*a); // gives the median of a sorted copy of 'a' for comparison.
 	compare_iterations = stack_len(*a);
 	while (compare_iterations--)
 	{
@@ -51,7 +34,7 @@ void	split_b(t_stack **a, t_stack **b)
 	int	compare_iterations;
 	int	median;
 
-	median = get_median_value(*b);
+	median = get_median_value(*b); // gives the median of a sorted copy of 'b' for comparison
 	compare_iterations = stack_len(*b);
 	while (compare_iterations--)
 	{
@@ -62,39 +45,60 @@ void	split_b(t_stack **a, t_stack **b)
 	}
 }
 
-void	sort_stacks(t_stack **a, t_stack **b)
+
+
+
+void sort_stacks(t_stack **a, t_stack **b)
 {
-	if (stack_len(*a) > 3)
-		sort_stacks(a, b);
-	if (stack_len(*b) > 3)
-		sort_stacks(a, b);
-}
+    int chunk_size;
+    int total_chunks;
+	int chunk_len;
+    int i;
+	int j;
 
-
-
-/*
-int	set_index(t_stack *stack)
-{
-	int	i;
-	int	median_index;
-	int median_value;
-
-	if (!stack)
-		return (-1);
+	chunk_size = 35;
+	total_chunks = (stack_len(*a) + chunk_size - 1) / chunk_size;
 	i = 0;
-	sort_copy(stack);
-	median_index = stack_len(stack) / 2;
-	while (stack)
-	{
-		stack->index = i;
-		if (i == median_index)
-			median_value = stack->nbr;
+    while (i < total_chunks)
+    {
+		chunk_len = chunk_size;
+		if (i == total_chunks - 1)
+			chunk_len = (stack_len(*a) % chunk_size);
+        if (chunk_len == 0)
+            chunk_len = chunk_size;
+
+		j = 0;
+        while (j < chunk_len)
+        {
+            t_stack *min = get_min(*a);
+			set_index(*a);
+            int min_index = min->index;
+            if (min_index <= chunk_len / 2)
+            {
+                while ((*a)->nbr != min->nbr)
+                    ra(a);
+            }
+            else
+            {
+                while ((*a)->nbr != min->nbr)
+                    rra(a);
+            }
+            pb(b, a);
+			j++;
+        }
 		i++;
-		stack = stack->next;
-	}
-	return (median_value);
+    }
+    while (*b != NULL)
+        pa(a, b);
 }
-*/
+
+
+
+
+
+
+
+
 
 /*
 void	sort_stacks(t_stack **a, t_stack **b)
