@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:05:39 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/22 10:45:03 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:31:55 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	main(int ac, char **av)
 {
 	t_stack		*a;
 	t_stack		*b;
+	int			**chunks_arr;
 
+	chunks_arr = NULL;
 	a = NULL;
 	b = NULL;
 	if (1 == ac || (2 == ac && !av[1][0]))
@@ -34,11 +36,20 @@ int	main(int ac, char **av)
 			sort_three(&a);
 		else if (stack_len(a) == 4 || stack_len(a) == 5)
 			sort_five(&a, &b);
-		else if (stack_len(a) > 5)
-			sort_stacks(&a, &b);
+		else if (stack_len(a) <= 100) //
+		{
+			chunks_arr = create_chunks(a, 5);
+			sort_stacks(&a, &b, chunks_arr);
+		}
+		else if (stack_len(a) <= 500)
+		{
+			chunks_arr = create_chunks(a, 11);
+			sort_stacks(&a, &b, chunks_arr);
+		}
 	}
-	print_stacks(a, b);
-	ft_printf("Number of moves: %d\n", number_of_moves);
+	//print_stacks(a, b);
+	//ft_printf("Number of moves: %d\n", number_of_moves);
+	free(chunks_arr);
 	free_stack(&a);
 	return (0);
 }

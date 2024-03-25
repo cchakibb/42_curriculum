@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/22 11:56:20 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/25 10:12:50 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ void			init_stack_a(t_stack **a, char **av);
 // Algorithm
 void			sort_three(t_stack **a);
 void			sort_five(t_stack **a, t_stack **b);
-void			sort_stacks(t_stack **a, t_stack **b);
+void			sort_stacks(t_stack **a, t_stack **b, int **chunks_arr);
 void			rev_sort_three(t_stack **a);
 void			rev_sort_five(t_stack **a, t_stack **b);
-
+int				**create_chunks(t_stack *a, int chunk_count);
 void			move_all_to_a(t_stack **a, t_stack **b);
 //______________________________________________________
 

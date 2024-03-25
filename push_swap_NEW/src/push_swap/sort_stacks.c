@@ -6,29 +6,71 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:07:54 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/22 13:27:02 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:02:05 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-
-void	split_a(t_stack **a, t_stack **b)
+int		**create_chunks(t_stack *a, int number_of_chunks)
 {
-	int	compare_iterations;
-	int	median;
+	int 		**chunks_arr;
+	t_stack 	*copy;
+	int			chunk_size;
 
-	median = get_median_value(*a); // gives the median of a sorted copy of 'a' for comparison.
-	compare_iterations = stack_len(*a);
-	while (compare_iterations--)
+	int			i;
+	int			j;
+	chunk_size = 20;
+	copy = copy_stack(a);
+	sort_copy(copy);
+	i = 0;
+	chunks_arr = (int **)malloc(sizeof(int *) * number_of_chunks);
+	while (i < number_of_chunks)
 	{
-		if ((*a)->nbr >= median)
-			ra(a);
-		else
-			pb(b, a);
+		chunks_arr[i] = (int *)malloc(sizeof(int) * chunk_size);
+		i++;
 	}
+
+	i = 0;
+	j = 0;
+	while (copy)
+	{
+        chunks_arr[i][j] = copy->nbr;
+        j++;
+        copy = copy->next;
+        if (j == chunk_size)
+		{
+            i++;
+            j = 0;
+        }
+    }
+	return (chunks_arr);
 }
 
+void sort_stacks(t_stack **a, t_stack **b, int **chunks_arr)
+{
+
+	b = NULL; // temp
+	int j = 0;
+	int hold_first;
+
+	while (*a)
+	{
+    	if ((*a) && (*a)->nbr == chunks_arr[0][j])
+    	{
+        	hold_first = (*a)->nbr;
+        	break; 
+    	}
+    	j++;
+    	if (!(*a)->next) break;
+    	a = &(*a)->next;
+	}
+	ft_printf("hold 1st = %d\n", hold_first);
+}
+
+// ./push_swap 8 3 5 11 4 9 6 2 10 1 7 38 -6
+
+/*
 void	split_b(t_stack **a, t_stack **b)
 {
 	int	compare_iterations;
@@ -44,10 +86,9 @@ void	split_b(t_stack **a, t_stack **b)
 			pa(a, b);
 	}
 }
+*/
 
-
-
-
+/*
 void sort_stacks(t_stack **a, t_stack **b)
 {
     int chunk_size;
@@ -91,14 +132,7 @@ void sort_stacks(t_stack **a, t_stack **b)
     while (*b != NULL)
         pa(a, b);
 }
-
-
-
-
-
-
-
-
+*/
 
 /*
 void	sort_stacks(t_stack **a, t_stack **b)
@@ -127,9 +161,24 @@ void	sort_stacks(t_stack **a, t_stack **b)
 }
 */
 
+/*
+void	split_a(t_stack **a, t_stack **b)
+{
+	int	compare_iterations;
+	int	median;
 
+	median = get_median_value(*a); // gives the median of a sorted copy of 'a' for comparison.
+	compare_iterations = stack_len(*a);
+	while (compare_iterations--)
+	{
+		if ((*a)->nbr >= median)
+			ra(a);
+		else
+			pb(b, a);
+	}
+}
+*/
 
-// ./push_swap 8 3 5 11 4 9 6 2 10 1 7 38 -6
 
 
 
