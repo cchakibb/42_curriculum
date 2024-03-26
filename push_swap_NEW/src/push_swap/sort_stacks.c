@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:07:54 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/25 15:02:05 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/26 12:25:45 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,29 @@ void sort_stacks(t_stack **a, t_stack **b, int **chunks_arr)
 
 	b = NULL; // temp
 	int j = 0;
-	int hold_first;
+	int hold_first = 0;
 
-	while (*a)
+	ft_printf("*a = %d\n", (*a)->nbr);
+	int x = 0;
+	while (a)
 	{
-    	if ((*a) && (*a)->nbr == chunks_arr[0][j])
-    	{
-        	hold_first = (*a)->nbr;
-        	break; 
-    	}
-    	j++;
-    	if (!(*a)->next) break;
-    	a = &(*a)->next;
+		j = 0;
+		while (j < 20)
+		{
+			if (a && (*a)->nbr == chunks_arr[0][j])
+			{	
+				hold_first = (*a)->nbr;
+				break ;
+			}
+			//ft_printf("comparing chunk = %d with a = %d\n", chunks_arr[0][j], (*a)->nbr);
+			printf("chunk = %d, a = %d\n", chunks_arr[0][j], (*a)->nbr);
+			j++;
+		}
+		if (!(*a)->next) break ;
+		(*a) = (*a)->next;
+		x++;
 	}
+	ft_printf("*a = %d\n", (*a)->nbr);
 	ft_printf("hold 1st = %d\n", hold_first);
 }
 

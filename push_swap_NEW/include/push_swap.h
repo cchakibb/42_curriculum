@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/25 10:12:50 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/26 12:21:15 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ extern int number_of_moves;
 # include <stdlib.h>
 # include <limits.h>
 # include <stdbool.h>
+# include <stdio.h>
 
 
 typedef struct s_stack
