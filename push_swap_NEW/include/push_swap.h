@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/26 12:21:15 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/27 19:07:03 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ t_stack			*copy_stack(t_stack *stack);
 int				find_index(t_stack *stack, int value);
 void			set_index(t_stack *stack);
 int				get_median_value(t_stack *stack);
-void			split_a(t_stack **a, t_stack **b);
-void			split_b(t_stack **a, t_stack **b);
+int				get_hold_first(t_stack *a, int **chunks_arr);
+int				get_hold_second(t_stack *a, int **chunks_arr);
 // ______________________________________________________
 
 // Commands
@@ -86,16 +86,16 @@ void			sort_stacks(t_stack **a, t_stack **b, int **chunks_arr);
 void			rev_sort_three(t_stack **a);
 void			rev_sort_five(t_stack **a, t_stack **b);
 int				**create_chunks(t_stack *a, int chunk_count);
+void			prepare_stack_a(t_stack **a, int **chunks_arr);
+void			move_to_top(t_stack **stack, int cost, char *rotate_type);
 void			move_all_to_a(t_stack **a, t_stack **b);
 //______________________________________________________
 
-
 // helper functions
-void	print_stacks(t_stack *a, t_stack *b);
+void			print_stacks(t_stack *a, t_stack *b);
 //______________________________________________________
 
-void sort_copy(t_stack *start);
-void swap_copy(t_stack *node_one, t_stack *node_two);
-
+void			sort_copy(t_stack *start);
+void			swap_copy(t_stack *node_one, t_stack *node_two);
 
 #endif

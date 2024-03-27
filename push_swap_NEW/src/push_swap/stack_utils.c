@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 13:01:40 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/22 12:11:09 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/27 12:31:26 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	find_index(t_stack *stack, int value)
 {
 	if (!stack)
 		return (-1);
+	set_index(stack);
 	while (stack)
 	{
 		if (stack->nbr == value)
@@ -40,7 +41,7 @@ void	set_index(t_stack *stack)
 	}
 }
 
-int	get_median_value(t_stack *stack)
+int	get_median_value(t_stack *stack) //!
 {
 	t_stack		*copy;
 	int			median_value;

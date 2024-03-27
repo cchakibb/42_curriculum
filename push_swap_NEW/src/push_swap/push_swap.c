@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:05:39 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/25 14:31:55 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/27 15:58:55 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 			sort_three(&a);
 		else if (stack_len(a) == 4 || stack_len(a) == 5)
 			sort_five(&a, &b);
-		else if (stack_len(a) <= 100) //
+		else if (stack_len(a) <= 100)
 		{
 			chunks_arr = create_chunks(a, 5);
 			sort_stacks(&a, &b, chunks_arr);
@@ -47,7 +47,7 @@ int	main(int ac, char **av)
 			sort_stacks(&a, &b, chunks_arr);
 		}
 	}
-	//print_stacks(a, b);
+	print_stacks(a, b);
 	//ft_printf("Number of moves: %d\n", number_of_moves);
 	free(chunks_arr);
 	free_stack(&a);
