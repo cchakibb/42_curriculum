@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 12:05:40 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/29 12:57:42 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/28 10:21:30 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static void	swap(t_stack **head)
 void	sa(t_stack **a)
 {
 	swap(a);
+	set_index(*a);
 	ft_printf("sa\n");
 	number_of_moves++;
 }
@@ -35,6 +36,7 @@ void	sa(t_stack **a)
 void	sb(t_stack **b)
 {
 	swap(b);
+	set_index(*b);
 	ft_printf("sb\n");
 	number_of_moves++;
 }
@@ -43,6 +45,8 @@ void	ss(t_stack **a, t_stack **b)
 {
 	swap(a);
 	swap(b);
+	set_index(*a);
+	set_index(*b);
 	ft_printf("ss\n");
 	number_of_moves++;
 }

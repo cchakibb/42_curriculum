@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:05:39 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/27 15:58:55 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/28 10:46:54 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	main(int ac, char **av)
 	init_stack_a(&a, av + 1);
 	if (!stack_sorted(a))
 	{
+		set_index(a);
+		set_index(b);
 		if (stack_len(a) == 2)
 			sa(&a);
 		else if (stack_len(a) == 3)

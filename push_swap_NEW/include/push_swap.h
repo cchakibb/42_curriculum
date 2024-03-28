@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/27 19:07:03 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/28 10:44:02 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ extern int number_of_moves;
 typedef struct s_stack
 {
 	int				nbr;
-	int				index;
+	int				idx;
 	bool			below_median;
 	struct s_stack	*prev;
 	struct s_stack	*next;
@@ -50,8 +50,8 @@ t_stack			*copy_stack(t_stack *stack);
 int				find_index(t_stack *stack, int value);
 void			set_index(t_stack *stack);
 int				get_median_value(t_stack *stack);
-int				get_hold_first(t_stack *a, int **chunks_arr);
-int				get_hold_second(t_stack *a, int **chunks_arr);
+t_stack			*get_hold_first(t_stack *a, int **chunks_arr);
+t_stack			*get_hold_second(t_stack *a, int **chunks_arr);
 // ______________________________________________________
 
 // Commands
