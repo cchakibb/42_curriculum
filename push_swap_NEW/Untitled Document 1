@@ -1,0 +1,22 @@
+In C programming. I have a stack called 'a' that has random numbers, no duplicates, can have positives and negatives. For example: [5, 8, 3, 6].
+I also have a stack 'b' that is empty at the beginning.
+I have a copy of stack 'a' called 'stack_copy' but which is already sorted from greatest value to lowest values of , that I can use for comparison. In my example [8,6,5,3].
+My stacks are a structure called t_stack. the structures have members 'int value', 'int index' and 'prev' and 'next' pointers. It's a linked list.
+Let's agree that the head of each stack ('a' 'b' or 'stack_copy') starts at index 0.
+So the head of 'a' has a value of 5 and index 0.
+The head of 'stack_copy' has value 8 and index 0.
+I can only use some moves for the 'a' and 'b' stacks such as:
+- sa() swap a, sb() swap b, ss() swap both a and b. Swaps only the head with the second node.
+- ra() rotate a, rb() rotate b, rr() rotate both. Rotations move the head to the tail. 
+- pb() push to b, pa() push to a. Can only push the head to another stack. 
+- rra() reverse rotate a, rrb() reverse rotate b, rrr() reverse rotate both. The tail becomes the head.
+At the end, stack 'a' has to be sorted from lowest to biggest node. For example [3,5,6,8].
+The 'b' stack must be empty at the end.
+'stack_copy' will remain unchanged since it's just used for comparison.
+I need to use the minimum possible amount of moves.
+
+My approach was to see if the first number in 'a' is found above the median of stack_copy. if so, i would rotate 'a' which will bring that node to the end of 'a'.
+then, the head of 'a' changes, the second node becomes the head. 
+Then I compare the head of 'a' again, if it's found below the median of stack_copy, i push the node from 'a' to 'b'.
+and so on.
+What do you think about my approach ? I don't know what to do next. please find a good solution on what to do next and guide me through.Be very specific and give detailed examples. Make it easy to understand.

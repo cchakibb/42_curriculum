@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:05:39 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/28 10:46:54 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/03/28 18:46:03 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	main(int ac, char **av)
 		else if (stack_len(a) <= 100)
 		{
 			chunks_arr = create_chunks(a, 5);
-			sort_stacks(&a, &b, chunks_arr);
+			sort_stacks(&a, &b, chunks_arr, 5);
 		}
 		else if (stack_len(a) <= 500)
 		{
 			chunks_arr = create_chunks(a, 11);
-			sort_stacks(&a, &b, chunks_arr);
+			sort_stacks(&a, &b, chunks_arr, 11);
 		}
 	}
 	print_stacks(a, b);

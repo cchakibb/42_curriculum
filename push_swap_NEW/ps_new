@@ -1,0 +1,55 @@
+void	prepare_stack_a(t_stack **a, int **chunks_arr)
+{
+	int hold_first;
+	int	hold_second;
+	int hold_first_idx;
+	int hold_second_idx;
+	int	hold_first_exit_cost;
+	int hold_second_exit_cost;
+	int	median;
+
+	median = stack_len(*a) / 2;
+	hold_first = get_hold_first(*a, chunks_arr);
+	hold_second = get_hold_second(*a, chunks_arr);
+	hold_first_idx = find_index(*a, hold_first);
+	hold_second_idx = find_index(*a, hold_second);
+	hold_first_exit_cost = hold_first_idx;
+	if (hold_first_idx > median)
+    	hold_first_exit_cost = stack_len(*a) - hold_first_idx;
+	hold_second_exit_cost = hold_second_idx;
+	if (hold_second_idx > median)
+    	hold_second_exit_cost = stack_len(*a) - hold_second_idx;
+	if (hold_first_exit_cost < hold_second_exit_cost)
+	{
+		if (hold_first_idx <= median)
+			move_to_top(a, hold_first_exit_cost, "ra");
+		else
+			move_to_top(a, hold_first_exit_cost, "rra");
+	}
+	else
+	{
+		if (hold_second_idx <= median)
+			move_to_top(a, hold_second_exit_cost, "ra");
+		else
+			move_to_top(a, hold_second_exit_cost, "rra");
+	}
+}
+
+
+
+/*
+if (hold_first_exit_cost < hold_second_exit_cost)
+	{
+		if (hold_first_idx <= stack_len(*a) / 2)
+			move_to_top(a, hold_first_exit_cost, "ra");
+		else
+			move_to_top(a, hold_first_exit_cost, "rra");
+	}
+	else
+	{
+		if (hold_second_idx <= stack_len(*a) / 2)
+			move_to_top(a, hold_second_exit_cost, "ra");
+		else
+			move_to_top(a, hold_second_exit_cost, "rra");
+	}
+*/
