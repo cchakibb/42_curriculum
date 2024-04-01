@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/28 19:45:19 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/01 15:01:23 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ t_stack			*copy_stack(t_stack *stack);
 int				find_index(t_stack *stack, int value);
 void			set_index(t_stack *stack);
 int				get_median_value(t_stack *stack);
-t_stack			*get_hold_first(t_stack *a, int **chunks_arr, int chunk_idx);
-t_stack			*get_hold_second(t_stack *a, int **chunks_arr, int chunk_idx);
+t_stack			*get_hold_first(t_stack *a, int *chunks_arr);
+t_stack			*get_hold_second(t_stack *a, int *chunks_arr);
 t_stack			*get_b_target(int nbr, t_stack *b);
 // ______________________________________________________
 
@@ -88,15 +88,16 @@ void			sort_stacks(t_stack **a, t_stack **b, int **chunks_arr, \
 void			rev_sort_three(t_stack **a);
 void			rev_sort_five(t_stack **a, t_stack **b);
 int				**create_chunks(t_stack *a, int nb_of_chunks);
-void			prepare_stack_a(t_stack **a, int **chunks_arr, int chunk_idx);
+//void			prepare_stack_a(t_stack **a, int **chunks_arr, int chunk_idx);
+void			prepare_stack_a(t_stack **a, int *chunks_arr);
 void			prepare_stack_b(t_stack **a, t_stack **b);
 void			move_to_top(t_stack **stack, int cost, char *rotate_type);
-void			a_get_exit_cost_and_move(t_stack **a, t_stack *hold_first, \
+void			a_get_exit_cost_and_move_up(t_stack **a, t_stack *hold_first, \
 				t_stack *hold_second, int mediane);
-int				chunk_value_still_in_a(t_stack *a, int **chunks_arr, \
-				int chunk_idx);
+int				chunk_value_still_in_a(t_stack *a, int *chunks_arr);
 void			move_b_target_up(t_stack *target, t_stack **b);
-void			move_all_to_a(t_stack **a, t_stack **b);
+void			find_max_b_and_pa(t_stack **a, t_stack **b);
+
 //______________________________________________________
 
 // helper functions

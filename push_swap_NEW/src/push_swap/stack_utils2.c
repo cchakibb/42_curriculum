@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:36:10 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/28 18:00:09 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:59:58 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,6 @@ t_stack	*get_max(t_stack *stack)
 	return (max_node);
 }
 
-void	move_all_to_a(t_stack **a, t_stack **b)
-{
-	while (*b)
-		pa(a, b);
-}
 
 int	get_median_value(t_stack *stack)
 {

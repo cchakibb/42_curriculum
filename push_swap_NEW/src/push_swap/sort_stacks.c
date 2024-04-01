@@ -6,13 +6,13 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:07:54 by chbachir          #+#    #+#             */
-/*   Updated: 2024/03/28 20:19:53 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/01 15:12:10 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	a_get_exit_cost_and_move(t_stack **a, t_stack *first, \
+void	a_get_exit_cost_and_move_up(t_stack **a, t_stack *first, \
 							t_stack *second, int med)
 {
 	int	first_exit_cost;
@@ -24,6 +24,8 @@ void	a_get_exit_cost_and_move(t_stack **a, t_stack *first, \
 		first_exit_cost = stack_len(*a) - first->idx;
 	if (second->idx > med)
 		second_exit_cost = stack_len(*a) - second->idx;
+	printf("first_exit_cost = %d\n", first_exit_cost);
+	printf("second_exit_cost = %d\n", second_exit_cost);
 	if (first_exit_cost < second_exit_cost)
 	{
 		if (first->idx <= med)
@@ -40,19 +42,24 @@ void	a_get_exit_cost_and_move(t_stack **a, t_stack *first, \
 	}
 }
 
-void	prepare_stack_a(t_stack **a, int **chunks_arr, int chunk_idx)
+//void	prepare_stack_a(t_stack **a, int *chunks_arr, int chunk_idx)
+void	prepare_stack_a(t_stack **a, int *chunks_arr)
 {
 	t_stack		*hold_first;
 	t_stack		*hold_second;
 	int			median;
 
 	median = stack_len(*a) / 2;
-	hold_first = get_hold_first(*a, chunks_arr, chunk_idx);
-	hold_second = get_hold_second(*a, chunks_arr, chunk_idx);
-	a_get_exit_cost_and_move(a, hold_first, hold_second, median);
+	//hold_first = get_hold_first(*a, chunks_arr[chunk_idx], chunk_idx);
+	hold_first = get_hold_first(*a, chunks_arr);
+	//hold_second = get_hold_second(*a, chunks_arr, chunk_idx);
+	hold_second = get_hold_second(*a, chunks_arr);
+	printf("hold first = %d\n", hold_first->nbr);
+	printf("hold second = %d\n", hold_second->nbr);
+	a_get_exit_cost_and_move_up(a, hold_first, hold_second, median);
 }
 
-t_stack	*get_b_target(int nbr, t_stack *b)
+t_stack	*get_b_target(int a_nbr, t_stack *b)
 {
 	t_stack		*target = NULL;
 
@@ -60,30 +67,34 @@ t_stack	*get_b_target(int nbr, t_stack *b)
 		return (NULL);
     while(b)
 	{
-        if(b->nbr < nbr && (target == NULL || (nbr - b->nbr < nbr - target->nbr)))
+        if(b->nbr < a_nbr && (target == NULL || ((a_nbr - b->nbr) < (a_nbr - target->nbr))))
             target = b;
         b = b->next;
-    } // double check if correct ?
-    if(target != NULL)
-	{
-        printf("Le chiffre le plus proche et inférieur à %d est %d.\n", nbr, target->nbr);
-		// find out why this runs infinitely
-	}
-
+    }
+    if (target)
+		printf("Closest lower number to %d is %d.\n", a_nbr, target->nbr);
 	return (target);
 }
 
 void	move_b_target_up(t_stack *target, t_stack **b)
 {
-	(void)target;
-	(void)b;
-	return ;
+	if (!(*b) || !target)
+		return ;
+	int median = stack_len(*b) / 2;
+
+	while (target->idx != 0)
+	{
+		if (target->idx <= median)
+			rb(b);
+		else if (target->idx > median)
+			rrb(b);
+	}
 }
 
 void	prepare_stack_b(t_stack **a, t_stack **b)
 {
-	t_stack		*max_b;
 	t_stack		*min_b;
+	t_stack		*max_b;
 	t_stack		*b_target;
 
 	max_b = get_max(*b);
@@ -92,12 +103,7 @@ void	prepare_stack_b(t_stack **a, t_stack **b)
 	if (!(*b) || ((*a)->nbr > max_b->nbr) || ((*a)->nbr < min_b->nbr))
 		pb(b, a);
 	else
-	{
-		move_b_target_up(b_target, b); // needs to be finished.
-		// once everything ok next step is to push a->nbr to top of b, and repeat the whole process until chunk1 no longer in 'a'
-		// then repeat same thing for other chunks until all 'a' is in 'b'.
-	}
-	// at the end i need to push to b, pb(b, a), once the target in b is above.
+		move_b_target_up(b_target, b);
 }
 
 void	sort_stacks(t_stack **a, t_stack **b, int **chunks_arr, \
@@ -108,13 +114,16 @@ void	sort_stacks(t_stack **a, t_stack **b, int **chunks_arr, \
 	chunk_idx = 0;
 	while (chunk_idx < nb_of_chunks)
 	{
-		while (chunk_value_still_in_a(*a, chunks_arr, chunk_idx) == 1) // there is a bug
+		while (chunk_value_still_in_a(*a, chunks_arr[chunk_idx]))
 		{
-			prepare_stack_a(a, chunks_arr, chunk_idx); //how many times should that run ?
-			prepare_stack_b(a, b); //how many times should that run ?
+			prepare_stack_a(a, chunks_arr[chunk_idx]);
+			prepare_stack_b(a, b);
+			pb(b, a);
 		}
 		chunk_idx++;
 	}
+	while (stack_len(*b) > 0)
+		find_max_b_and_pa(a, b);
 }
 
 
