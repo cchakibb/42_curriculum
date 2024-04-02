@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:05:39 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/01 15:26:37 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/02 12:21:22 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,35 @@ int	main(int ac, char **av)
 			sort_five(&a, &b);
 		else if (stack_len(a) <= 100)
 		{
-
 			chunks_arr = create_chunks(a, 5);
 			sort_stacks(&a, &b, chunks_arr, 5);
 		}
 		else if (stack_len(a) <= 500)
 		{
-			chunks_arr = create_chunks(a, 11);
-			sort_stacks(&a, &b, chunks_arr, 11);
+			chunks_arr = create_chunks(a, 25);
+			sort_stacks(&a, &b, chunks_arr, 25);
 		}
 	}
-	print_stacks(a, b);
 	ft_printf("Number of moves: %d\n", number_of_moves);
 	free(chunks_arr);
 	free_stack(&a);
 	return (0);
 }
 
-// works <= 200 numbers in A, not above.
+/* int i = 1;
+	t_stack *test = a;
+	while (test)
+	{
+		printf("%d == %d\n", i, test->nbr);
+		if (test->nbr != i)
+		{
+			printf("break here at %d and %d\n", i, test->nbr);
+			break ;
+		}
+		i++;
+		test = test->next;
+	} */
+	//print_stacks(a, b);
+	//ft_printf("Number of moves: %d\n", number_of_moves);
+
+//ARG=""; ./push_swap $ARG | ./checker_linux $ARG

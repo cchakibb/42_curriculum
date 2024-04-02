@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:07:54 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/01 15:12:10 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/02 10:01:19 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	a_get_exit_cost_and_move_up(t_stack **a, t_stack *first, \
 		first_exit_cost = stack_len(*a) - first->idx;
 	if (second->idx > med)
 		second_exit_cost = stack_len(*a) - second->idx;
-	printf("first_exit_cost = %d\n", first_exit_cost);
-	printf("second_exit_cost = %d\n", second_exit_cost);
+	//printf("first_exit_cost = %d\n", first_exit_cost);
+	//printf("second_exit_cost = %d\n", second_exit_cost);
 	if (first_exit_cost < second_exit_cost)
 	{
 		if (first->idx <= med)
@@ -54,8 +54,8 @@ void	prepare_stack_a(t_stack **a, int *chunks_arr)
 	hold_first = get_hold_first(*a, chunks_arr);
 	//hold_second = get_hold_second(*a, chunks_arr, chunk_idx);
 	hold_second = get_hold_second(*a, chunks_arr);
-	printf("hold first = %d\n", hold_first->nbr);
-	printf("hold second = %d\n", hold_second->nbr);
+	//printf("hold first = %d\n", hold_first->nbr);
+	//printf("hold second = %d\n", hold_second->nbr);
 	a_get_exit_cost_and_move_up(a, hold_first, hold_second, median);
 }
 
@@ -71,8 +71,8 @@ t_stack	*get_b_target(int a_nbr, t_stack *b)
             target = b;
         b = b->next;
     }
-    if (target)
-		printf("Closest lower number to %d is %d.\n", a_nbr, target->nbr);
+    //if (target)
+		//printf("Closest lower number to %d is %d.\n", a_nbr, target->nbr);
 	return (target);
 }
 

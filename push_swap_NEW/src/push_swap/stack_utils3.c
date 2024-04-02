@@ -6,13 +6,12 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:49:40 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/01 15:07:03 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/02 10:37:08 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-//t_stack	*get_hold_first(t_stack *a, int **chunks_arr, int chunk_idx)
 t_stack	*get_hold_first(t_stack *a, int *chunks_arr)
 {
 	t_stack		*hold_first;
@@ -25,7 +24,6 @@ t_stack	*get_hold_first(t_stack *a, int *chunks_arr)
 		i = 0;
 		while (i < 20)
 		{
-			//if (a && a->nbr == chunks_arr[chunk_idx][i])
 			if (a && a->nbr == chunks_arr[i])
 			{
 				hold_first = a;
