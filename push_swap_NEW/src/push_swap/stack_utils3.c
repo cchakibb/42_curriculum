@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:49:40 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/02 10:37:08 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/03 14:43:32 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_stack	*get_hold_first(t_stack *a, int *chunks_arr)
 	return (hold_first);
 }
 
-//t_stack	*get_hold_second(t_stack *a, int **chunks_arr, int chunk_idx)
 t_stack	*get_hold_second(t_stack *a, int *chunks_arr)
 {
 	t_stack		*hold_second;
@@ -92,10 +91,10 @@ void	find_max_b_and_pa(t_stack **a, t_stack **b)
 {
 	t_stack		*max_node;
 	int			median;
-	
+
 	max_node = get_max(*b);
 	median = stack_len(*b) / 2;
-	while(max_node->idx != 0)
+	while (max_node->idx != 0)
 	{
 		if (max_node->idx <= median)
 			rb(b);
@@ -124,3 +123,11 @@ int	chunk_value_still_in_a(t_stack *a, int *chunks_arr)
 	}
 	return (0);
 }
+
+/* void	bring_to_top(t_stack *max_b, t_stack **b)
+{
+	if (!max_b || !b)
+		return ;
+	while (max_b->idx != 0)
+		rb(b);
+} */

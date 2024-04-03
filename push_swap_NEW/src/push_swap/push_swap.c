@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:05:39 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/02 17:24:30 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/03 15:09:13 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,17 @@ int	main(int ac, char **av)
 			sort_stacks(&a, &b, chunks_arr, 25);
 		}
 	}
-	/* int i = 101;
-	t_stack *test = a;
-	while (test)
+	// TEST //
+	/* t_stack *test = a;
+	while (test->next)
 	{
-		//printf("%d == %d\n", i, test->nbr);
-		if (test->nbr != i)
+		if (test->nbr > test->next->nbr)
 		{
-			printf("break here at %d and %d\n", i, test->nbr);
+			printf("breaking here at %d\n", test->nbr);
 			break ;
 		}
-		i++;
 		test = test->next;
-	} */
+	}*/
 	print_stacks(a, b);
 	ft_printf("Number of moves: %d\n", number_of_moves);
 	free(chunks_arr);
