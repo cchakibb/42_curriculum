@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:49:40 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/03 14:43:32 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/04 13:57:21 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,11 +123,3 @@ int	chunk_value_still_in_a(t_stack *a, int *chunks_arr)
 	}
 	return (0);
 }
-
-/* void	bring_to_top(t_stack *max_b, t_stack **b)
-{
-	if (!max_b || !b)
-		return ;
-	while (max_b->idx != 0)
-		rb(b);
-} */

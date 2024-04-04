@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:05:39 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/03 15:09:13 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/04 13:35:13 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,12 @@ int	main(int ac, char **av)
 	{
 		set_index(a);
 		set_index(b);
-		if (stack_len(a) == 2)
-			sa(&a);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else if (stack_len(a) == 4 || stack_len(a) == 5)
-			sort_five(&a, &b);
-		else if (stack_len(a) <= 100)
-		{
-			chunks_arr = create_chunks(a, 5);
-			sort_stacks(&a, &b, chunks_arr, 5);
-		}
-		else if (stack_len(a) <= 500)
-		{
-			chunks_arr = create_chunks(a, 25);
-			sort_stacks(&a, &b, chunks_arr, 25);
-		}
+		if (stack_len(a) >= 2 && stack_len(a) <= 5)
+			sort_small(&a, &b);
+		else
+			sort_stacks(&a, &b, chunks_arr);
 	}
-	// TEST //
-	/* t_stack *test = a;
+	t_stack *test = a;
 	while (test->next)
 	{
 		if (test->nbr > test->next->nbr)
@@ -59,13 +46,27 @@ int	main(int ac, char **av)
 			break ;
 		}
 		test = test->next;
-	}*/
+	}
 	print_stacks(a, b);
 	ft_printf("Number of moves: %d\n", number_of_moves);
 	free(chunks_arr);
 	free_stack(&a);
 	return (0);
 }
+
+/* 	// TEST //
+	t_stack *test = a;
+	while (test->next)
+	{
+		if (test->nbr > test->next->nbr)
+		{
+			printf("breaking here at %d\n", test->nbr);
+			break ;
+		}
+		test = test->next;
+	}
+	print_stacks(a, b);
+	ft_printf("Number of moves: %d\n", number_of_moves); */
 
 /* int i = 1;
 	t_stack *test = a;

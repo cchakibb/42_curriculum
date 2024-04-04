@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:22:17 by chbachir          #+#    #+#             */
-/*   Updated: 2024/02/29 13:42:52 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/04 13:58:25 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ static void	append_node(t_stack **stack, int n)
 	t_stack			*node;
 	t_stack			*last_node;
 
-	/* if (!stack)
-		return ; */
 	node = malloc(sizeof(t_stack));
 	if (!node)
 		return ;
@@ -58,7 +56,7 @@ static void	append_node(t_stack **stack, int n)
 	}
 }
 
-void	init_stack_a(t_stack **a, char **av) //initiates stack `a` by handling any errors and appending required nodes to complete a stack
+void	init_stack_a(t_stack **a, char **av)
 {
 	long	n;
 	int		i;

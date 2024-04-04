@@ -6,42 +6,38 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:36:10 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/03 13:23:12 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/04 14:52:16 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int **create_chunks(t_stack *a, int nb_of_chunks) {
-    int **chunks_arr;
-    t_stack *copy;
-    int i;
-    int j;
-    
-    copy = copy_stack(a);
-    sort_copy(copy);
-    
-    i = 0;
-    chunks_arr = (int **)malloc(sizeof(int *) * nb_of_chunks);
-    while (i < nb_of_chunks)
-        chunks_arr[i++] = (int *)malloc(sizeof(int) * 20);
-    
-    i = 0;
-    j = 0;
-    while (copy)
+int	**create_chunks(t_stack *copy, int nb_of_chunks)
+{
+	int			**chunks_arr;
+	int			i;
+	int			j;
+
+	i = 0;
+	chunks_arr = (int **)malloc(sizeof(int *) * nb_of_chunks);
+	while (i < nb_of_chunks)
+		chunks_arr[i++] = (int *)malloc(sizeof(int) * 20);
+	i = 0;
+	j = 0;
+	while (copy)
 	{
-        if (i >= nb_of_chunks)
-            break ;
-        chunks_arr[i][j] = copy->nbr;
-        j++;
-        copy = copy->next;
-        if (j == 20)
+		if (i >= nb_of_chunks)
+			break ;
+		chunks_arr[i][j] = copy->nbr;
+		j++;
+		copy = copy->next;
+		if (j == 20)
 		{
-            i++;
-            j = 0;
-        }
-    }
-    return chunks_arr;
+			i++;
+			j = 0;
+		}
+	}
+	return (chunks_arr);
 }
 
 t_stack	*get_min(t_stack *stack)
@@ -84,7 +80,6 @@ t_stack	*get_max(t_stack *stack)
 	return (max_node);
 }
 
-
 int	get_median_value(t_stack *stack)
 {
 	t_stack		*copy;
@@ -101,4 +96,3 @@ int	get_median_value(t_stack *stack)
 	}
 	return (median_value);
 }
-

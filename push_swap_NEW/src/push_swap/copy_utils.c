@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:21:20 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/02 12:18:53 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/04 13:54:37 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,32 +50,29 @@ void	sort_copy(t_stack *copy)
 
 t_stack	*copy_stack(t_stack *a)
 {
-	t_stack *new_head = NULL;  // Head of the copied list
-	t_stack **current = &new_head;  // Pointer to track the end of the new list
+	t_stack		*new_head;
+	t_stack		**current;
+	t_stack		*tmp;
 
-	// Iterate through the original list
+	new_head = NULL;
+	current = &new_head;
 	while (a)
 	{
-		// Allocate memory for the new node
 		*current = malloc(sizeof(t_stack));
 		if (!*current)
 		{
-			// Handle memory allocation error - free the partially copied list
 			while (new_head)
 			{
-				t_stack	*tmp = new_head;
+				tmp = new_head;
 				new_head = new_head->next;
 				free(tmp);
 			}
-			return NULL;  // Indicate failure
-        }
-        // Copy the 'nbr' data
-        (*current)->nbr = a->nbr;
-        (*current)->next = NULL;  // Ensure 'next' is NULL
-
-        // Move to the next node in the original and new lists
-        current = &((*current)->next);
-        a = a->next;
-    }
-    return new_head;
+			return (NULL);
+		}
+		(*current)->nbr = a->nbr;
+		(*current)->next = NULL;
+		current = &((*current)->next);
+		a = a->next;
+	}
+	return (new_head);
 }

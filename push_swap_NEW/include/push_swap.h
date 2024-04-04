@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/03 14:22:50 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/04 14:33:13 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ typedef struct s_stack
 {
 	int				nbr;
 	int				idx;
-	bool			below_median;
 	struct s_stack	*prev;
 	struct s_stack	*next;
-	
 }	t_stack;
 
 // Errors //
@@ -84,11 +82,9 @@ void			init_stack_a(t_stack **a, char **av);
 // Algorithm
 void			sort_three(t_stack **a);
 void			sort_five(t_stack **a, t_stack **b);
-void			sort_stacks(t_stack **a, t_stack **b, int **chunks_arr, \
-				int nb_of_chunks);
-//void			rev_sort_three(t_stack **a);
-//void			rev_sort_five(t_stack **a, t_stack **b);
-int				**create_chunks(t_stack *a, int nb_of_chunks);
+void			sort_small(t_stack **a, t_stack **b);
+void			sort_stacks(t_stack **a, t_stack **b, int **chunks_arr);
+int				**create_chunks(t_stack *copy, int nb_of_chunks);
 void			prepare_stack_a(t_stack **a, int *chunks_arr);
 void			prepare_stack_b_and_push(t_stack **a, t_stack **b);
 void			move_to_top(t_stack **stack, int cost, char *rotate_type);
