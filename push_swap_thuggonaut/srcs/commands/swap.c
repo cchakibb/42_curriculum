@@ -17,14 +17,20 @@ void	sa(t_stack_node	**a, bool print) //Swap the first two nodes of stack `a` an
 {
 	swap(a);
 	if (!print)
+	{
 		ft_printf("sa\n");
+		number_of_moves++;
+	}
 }
 
 void	sb(t_stack_node **b, bool print) //Swap the first two nodes of stack `b` and print the instruction
 {
 	swap(b);
 	if (!print)
+	{
 		ft_printf("sb\n");
+		number_of_moves++;
+	}
 }
 
 void	ss(t_stack_node **a, t_stack_node **b, bool print) //Stimutaneously swap the first two nodes of the stack and print the instruction
@@ -32,5 +38,8 @@ void	ss(t_stack_node **a, t_stack_node **b, bool print) //Stimutaneously swap th
 	swap(a);
 	swap(b);
 	if (!print)
+	{
 		ft_printf("ss\n");
+		number_of_moves++;
+	}
 }

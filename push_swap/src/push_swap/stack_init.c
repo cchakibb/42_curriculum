@@ -6,13 +6,13 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:22:17 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/04 13:58:25 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/05 12:02:20 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static long	ft_atol(const char *s) //converts a string into a long value
+static long	ft_atol(const char *s)
 {
 	long	result;
 	int		sign;

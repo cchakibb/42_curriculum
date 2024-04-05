@@ -6,11 +6,58 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:36:10 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/04 14:52:16 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/05 12:47:27 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+/* int	alloc_chunks_mem(int **chunks_arr, int nb_of_chunks)
+{
+	int	i;
+
+	i = 0;
+	*chunks_arr = (int **)malloc(sizeof(int *) * nb_of_chunks);
+	if (!(*chunks_arr))
+		return (0);
+	while (i < nb_of_chunks)
+	{
+		*(chunks_arr[i++]) = (int *)malloc(sizeof(int) * 20);
+		if (!chunks_arr[i])
+		{
+			while (i > 0)
+			{
+				free((*chunks_arr)[--i]);
+			}
+			free(*chunks_arr);
+			return (0);
+		}
+	}
+	return (1);
+} */
+
+int	alloc_chunks_mem(int ***chunks_arr, int nb_of_chunks)
+{
+	int	i;
+
+	*chunks_arr = (int **)malloc(sizeof(int *) * nb_of_chunks);
+	if (!*chunks_arr)
+		return (0);
+	i = 0;
+	while (i < nb_of_chunks)
+	{
+		(*chunks_arr)[i] = (int *)malloc(sizeof(int) * 20);
+		if (!(*chunks_arr)[i])
+		{
+			while (i > 0)
+				free((*chunks_arr)[--i]);
+			free(*chunks_arr);
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}
 
 int	**create_chunks(t_stack *copy, int nb_of_chunks)
 {
@@ -18,10 +65,8 @@ int	**create_chunks(t_stack *copy, int nb_of_chunks)
 	int			i;
 	int			j;
 
-	i = 0;
-	chunks_arr = (int **)malloc(sizeof(int *) * nb_of_chunks);
-	while (i < nb_of_chunks)
-		chunks_arr[i++] = (int *)malloc(sizeof(int) * 20);
+	if (alloc_chunks_mem(&chunks_arr, nb_of_chunks) == 0)
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (copy)

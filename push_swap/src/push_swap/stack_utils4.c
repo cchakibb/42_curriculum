@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:15:44 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/04 15:07:08 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/05 12:03:21 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_stack	*get_b_target(int a_nbr, t_stack *b)
 
 void	move_b_target_up(t_stack *target, t_stack **b)
 {
-	int	median;
+	int			median;
 
 	if (!(*b) || !target)
 		return ;
@@ -85,22 +85,17 @@ void	move_b_target_up(t_stack *target, t_stack **b)
 	}
 }
 
-
 void	prepare_stack_b_and_push(t_stack **a, t_stack **b)
 {
-	t_stack		*min_b;
-	t_stack		*max_b;
 	t_stack		*b_target;
+	t_stack		*max_b;
+	t_stack		*min_b;
 
 	max_b = get_max(*b);
 	min_b = get_min(*b);
 	b_target = get_b_target((*a)->nbr, *b);
-	if (max_b && b_target && max_b->nbr > b_target->nbr)
-		b_target = max_b;
 	if (!(*b))
 		pb(b, a);
 	else
-	{
 		move_b_target_up(b_target, b);
-	}
 }

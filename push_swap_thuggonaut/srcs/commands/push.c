@@ -27,13 +27,19 @@ static void	push(t_stack_node **dst, t_stack_node **src) //Define a function tha
 void	pa(t_stack_node **a, t_stack_node **b, bool print) //Push on top of `b`, the top `a` and print the instruction
 {
 	push(a, b); 
-	if (!print) 
+	if (!print)
+	{
 		ft_printf("pa\n");
+		number_of_moves++;
+	}
 }
 
 void	pb(t_stack_node **b, t_stack_node **a, bool print) //Push on top of `a`, the top `b` and print the instruction
 {
 	push(b, a);
 	if (!print)
+	{
 		ft_printf("pb\n");
+		number_of_moves++;
+	}
 }

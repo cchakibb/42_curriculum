@@ -1,10 +1,13 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <stdio.h>
 # include <stdbool.h> //To use bool flags, e.g, to print or not to print
 # include <limits.h> //To define MIN and MAX macros
 # include "../libft/inc/libft.h"
 # include "../libft/inc/ft_printf.h"
+
+extern int number_of_moves;
 
 typedef struct s_stack_node //A container of data enclosed in {} braces. `s_` for struct
 {

@@ -1,5 +1,7 @@
 #include "../../inc/push_swap.h"
 
+int	number_of_moves = 0;
+
 int	main(int argc, char **argv) //Define a program that takes in a random input if numbers and sorts them in ascending order
 {
 	t_stack_node	*a; //To store a pointer to stack `a`
@@ -21,6 +23,7 @@ int	main(int argc, char **argv) //Define a program that takes in a random input 
 		else
 			sort_stacks(&a, &b); //If not, and there are more than three numbers, call the sort stacks algorithm
 	}
+	printf("number of moves = %d\n", number_of_moves);
 	free_stack(&a); //Clean up the stack
 	return (0);
 }

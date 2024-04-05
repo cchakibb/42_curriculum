@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aroque <aroque@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 17:29:06 by aroque            #+#    #+#             */
-/*   Updated: 2021/05/19 15:44:41 by aroque           ###   ########.fr       */
+/*   Updated: 2024/04/05 09:24:53 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	run(char *op, t_stack *a, t_stack *b)
 	else if (ft_streq(op, RRB))
 		reverse_rotate(b);
 	ft_putendl_fd(op, STDOUT_FILENO);
+	number_of_moves++;
 }
 
 void	run_n(char *op, t_stack *a, t_stack *b, int n)

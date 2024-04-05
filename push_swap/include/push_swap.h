@@ -6,22 +6,18 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/04 14:33:13 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/05 12:01:32 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-extern int number_of_moves;
-
 # include "../ft_printf/ft_printf.h"
 # include "../libft/libft.h"
 # include <stdlib.h>
 # include <limits.h>
 # include <stdbool.h>
-# include <stdio.h>
-
 
 typedef struct s_stack
 {
@@ -93,6 +89,7 @@ void			a_get_exit_cost_and_move_up(t_stack **a, t_stack *hold_first, \
 int				chunk_value_still_in_a(t_stack *a, int *chunks_arr);
 void			move_b_target_up(t_stack *target, t_stack **b);
 void			find_max_b_and_pa(t_stack **a, t_stack **b);
+void			move_all_to_a(t_stack **a, t_stack **b);
 
 //______________________________________________________
 

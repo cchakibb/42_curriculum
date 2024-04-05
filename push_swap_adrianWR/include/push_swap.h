@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aroque <aroque@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 21:09:58 by aroque            #+#    #+#             */
-/*   Updated: 2021/05/19 15:46:58 by aroque           ###   ########.fr       */
+/*   Updated: 2024/04/05 09:26:16 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "stack.h"
+# include <stdio.h>
 
 # define SA "sa"
 # define SB "sb"
@@ -23,6 +24,8 @@
 # define RB "rb"
 # define RRA "rra"
 # define RRB "rrb"
+
+extern int number_of_moves;
 
 # define CHUNK_CONSTANT 50
 # define SORT_COMPLEX_LIMIT 5

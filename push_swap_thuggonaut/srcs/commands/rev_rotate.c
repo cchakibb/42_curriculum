@@ -18,14 +18,20 @@ void	rra(t_stack_node **a, bool print) //Rotate the bottom of `a` to the top of 
 {
 	rev_rotate(a);
 	if (!print)
+	{
 		ft_printf("rra\n");
+		number_of_moves++;
+	}
 }
 
 void	rrb(t_stack_node **b, bool print) //Rotate the bottom of `b` to the top of the stack and print the instruction
 {
 	rev_rotate(b);
 	if (!print)
+	{
 		ft_printf("rrb\n");
+		number_of_moves++;
+	}
 }
 
 void	rrr(t_stack_node **a, t_stack_node **b, bool print) //Stimultaneously rotate both stacks' bottom nodes to the top of their stacks, halving the cost of instructions
@@ -33,5 +39,8 @@ void	rrr(t_stack_node **a, t_stack_node **b, bool print) //Stimultaneously rotat
 	rev_rotate(a);
 	rev_rotate(b);
 	if (!print)
+	{
 		ft_printf("rrr\n");
+		number_of_moves++;
+	}
 }

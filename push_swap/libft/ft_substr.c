@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chbachir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:08:59 by chbachir          #+#    #+#             */
-/*   Updated: 2023/05/19 12:38:20 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/05 12:01:16 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Returns: The substring or NULL if the allocation fails.
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
-{	
+{
 	char	*str;
 	int		i;
 

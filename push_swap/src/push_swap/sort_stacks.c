@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:07:54 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/04 14:53:22 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/05 12:02:55 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,3 @@ void	sort_stacks(t_stack **a, t_stack **b, int **chunks_arr)
 	while (stack_len(*b) > 0)
 		find_max_b_and_pa(a, b);
 }
-
-
-
-// ./push_swap 8 3 5 11 4 9 6 2 10 1 7 38 -6
-// ./push_swap 33 31 30 22 11 17 34 1 39 29 26 23 36 32 7 21 38 24 3 5 37 4 9 35 19 27 25 6 28 2 14 10 8 16 15 18 12 13 20 40
-// ./push_swap 5 18 21 23 7 6 22 12 29 2 13 16 38 15 35 30 26 1 8 36 34 27 9 17 39 40 28 31 11 20 4 19 32 24 37 14 25 3 33 10
-
-
-/* 
-TODO
-1 . check if candidate hold first/second is chosen correctly if hold_first is head and hold_second is tail, prioritize head because one move only pb()
-2 . 
-
-
- */
