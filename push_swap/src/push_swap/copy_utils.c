@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:21:20 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/04 13:54:37 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:25:34 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	sort_copy(t_stack *copy)
 	}
 }
 
+/*
 t_stack	*copy_stack(t_stack *a)
 {
 	t_stack		*new_head;
@@ -75,4 +76,41 @@ t_stack	*copy_stack(t_stack *a)
 		a = a->next;
 	}
 	return (new_head);
+} */
+
+t_stack *copy_stack(t_stack *a)
+{
+    t_stack *new_stack = NULL;
+    t_stack *current = NULL;
+	t_stack *tmp;
+	t_stack *new_node;
+
+    while (a)
+    {
+        new_node = malloc(sizeof(t_stack));
+        if (!new_node)
+        {
+            // Free the partially copied stack on allocation failure
+            while (new_stack)
+            {
+                tmp = new_stack;
+                new_stack = new_stack->next;
+                free(tmp);
+            }
+            return NULL;
+        }
+        new_node->nbr = a->nbr;
+        new_node->next = NULL;
+
+        if (!new_stack)
+            new_stack = new_node;
+        else
+            current->next = new_node;
+
+        current = new_node;
+        a = a->next;
+    }
+
+    return new_stack;
 }
+

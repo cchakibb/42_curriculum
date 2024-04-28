@@ -6,11 +6,13 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:05:39 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/05 15:01:52 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/09 16:23:04 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+int nb_moves = 0;
 
 int	main(int ac, char **av)
 {
@@ -35,8 +37,20 @@ int	main(int ac, char **av)
 		else
 			sort_stacks(&a, &b, chunks_arr);
 	}
-	free(chunks_arr);
+	t_stack *test = a;
+	while (test->next)
+	{
+		if (test->nbr > test->next->nbr)
+		{
+			printf("breaking here at %d\n", test->nbr);
+			break ;
+		}
+		test = test->next;
+	}
+	print_stacks(a, b);
+	ft_printf("Number of moves: %d\n", nb_moves);
 	free_stack(&a);
+	//free(*chunks_arr);
 	return (0);
 }
 
@@ -52,10 +66,10 @@ int	main(int ac, char **av)
 		test = test->next;
 	}
 	print_stacks(a, b);
-	ft_printf("Number of moves: %d\n", number_of_moves);
+	ft_printf("Number of moves: %d\n", nb_moves);
 
 	print_stacks(a, b);
-	ft_printf("Number of moves: %d\n", number_of_moves);
+	ft_printf("Number of moves: %d\n", nb_moves);
 
 ARG=""; ./push_swap $ARG | ./checker_linux $ARG
 

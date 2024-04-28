@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:36:10 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/05 12:47:27 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/04/09 16:10:11 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	alloc_chunks_mem(int ***chunks_arr, int nb_of_chunks)
 		if (!(*chunks_arr)[i])
 		{
 			while (i > 0)
-				free((*chunks_arr)[--i]);
+				free((chunks_arr)[--i]);
 			free(*chunks_arr);
 			return (0);
 		}
@@ -64,7 +64,7 @@ int	**create_chunks(t_stack *copy, int nb_of_chunks)
 	int			**chunks_arr;
 	int			i;
 	int			j;
-
+	
 	if (alloc_chunks_mem(&chunks_arr, nb_of_chunks) == 0)
 		return (NULL);
 	i = 0;
