@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:15:44 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/09 15:04:47 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/05/02 14:09:22 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,7 @@ void	move_b_target_up(t_stack *target, t_stack **b)
 void	prepare_stack_b_and_push(t_stack **a, t_stack **b)
 {
 	t_stack		*b_target;
-	//t_stack		*max_b;
-	//t_stack		*min_b;
 
-	//max_b = get_max(*b);
-	//min_b = get_min(*b);
 	b_target = get_b_target((*a)->nbr, *b);
 	if (!(*b))
 		pb(b, a);

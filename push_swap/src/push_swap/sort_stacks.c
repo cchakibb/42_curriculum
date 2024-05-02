@@ -6,11 +6,18 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:07:54 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/28 13:49:55 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/05/02 14:38:57 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+void	free_chunks_arr(int nb_of_chunks, int **chunks_arr)
+{
+	while (nb_of_chunks > 0)
+		free(chunks_arr[--nb_of_chunks]);
+	free(chunks_arr);
+}
 
 void	sort_stacks(t_stack **a, t_stack **b, int **chunks_arr)
 {
@@ -38,9 +45,5 @@ void	sort_stacks(t_stack **a, t_stack **b, int **chunks_arr)
 	free_stack(&copy);
 	while (stack_len(*b) > 0)
 		find_max_b_and_pa(a, b);
-	while (nb_of_chunks > 0)
-	{
-		free(chunks_arr[--nb_of_chunks]);
-	}
-	chunks_arr = NULL;
+	free_chunks_arr(nb_of_chunks, chunks_arr);
 }

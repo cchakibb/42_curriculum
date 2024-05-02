@@ -6,37 +6,13 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:36:10 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/28 14:23:56 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/05/02 13:42:01 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-/* int	alloc_chunks_mem(int **chunks_arr, int nb_of_chunks)
-{
-	int	i;
-
-	i = 0;
-	*chunks_arr = (int **)malloc(sizeof(int *) * nb_of_chunks);
-	if (!(*chunks_arr))
-		return (0);
-	while (i < nb_of_chunks)
-	{
-		*(chunks_arr[i++]) = (int *)malloc(sizeof(int) * 20);
-		if (!chunks_arr[i])
-		{
-			while (i > 0)
-			{
-				free((*chunks_arr)[--i]);
-			}
-			free(*chunks_arr);
-			return (0);
-		}
-	}
-	return (1);
-} */
-
-/* int	alloc_chunks_mem(int ***chunks_arr, int nb_of_chunks)
+int	alloc_chunks_mem(int ***chunks_arr, int nb_of_chunks)
 {
 	int	i;
 
@@ -57,43 +33,13 @@
 		i++;
 	}
 	return (1);
-} */
-
-int alloc_chunks_mem(int ***chunks_arr, int nb_of_chunks)
-{
-    int i;
-
-    *chunks_arr = (int **)malloc(sizeof(int *) * nb_of_chunks);
-    if (!*chunks_arr)
-        return (0);
-
-    i = 0;
-    while (i < nb_of_chunks)
-    {
-        (*chunks_arr)[i] = (int *)malloc(sizeof(int) * 20);
-        if (!(*chunks_arr)[i])
-        {
-            while (i > 0)
-                free((*chunks_arr)[--i]);
-            free(*chunks_arr);
-            return (0);
-        }
-        i++;
-    }
-	i = 0;
-    // Free the memory allocated for *chunks_arr before returning
-    while (i < nb_of_chunks)
-        free((*chunks_arr)[i++]);
-    free(*chunks_arr);
-
-    return (1);
 }
 
-int **create_chunks(t_stack *copy, int nb_of_chunks)
+int	**create_chunks(t_stack *copy, int nb_of_chunks)
 {
-	int **chunks_arr;
-	int i;
-	int j;
+	int	**chunks_arr;
+	int	i;
+	int	j;
 
 	if (alloc_chunks_mem(&chunks_arr, nb_of_chunks) == 0)
 		return (NULL);
@@ -102,7 +48,7 @@ int **create_chunks(t_stack *copy, int nb_of_chunks)
 	while (copy)
 	{
 		if (i >= nb_of_chunks)
-			break;
+			break ;
 		chunks_arr[i][j] = copy->nbr;
 		j++;
 		copy = copy->next;
@@ -115,10 +61,10 @@ int **create_chunks(t_stack *copy, int nb_of_chunks)
 	return (chunks_arr);
 }
 
-t_stack *get_min(t_stack *stack)
+t_stack	*get_min(t_stack *stack)
 {
-	long min;
-	t_stack *min_node;
+	long		min;
+	t_stack		*min_node;
 
 	if (!stack)
 		return (NULL);
@@ -135,10 +81,10 @@ t_stack *get_min(t_stack *stack)
 	return (min_node);
 }
 
-t_stack *get_max(t_stack *stack)
+t_stack	*get_max(t_stack *stack)
 {
-	long max;
-	t_stack *max_node;
+	long		max;
+	t_stack		*max_node;
 
 	if (!stack)
 		return (NULL);
@@ -155,11 +101,11 @@ t_stack *get_max(t_stack *stack)
 	return (max_node);
 }
 
-int get_median_value(t_stack *stack)
+int	get_median_value(t_stack *stack)
 {
-	t_stack *copy;
-	int median_value;
-	int median_index;
+	t_stack		*copy;
+	int			median_value;
+	int			median_index;
 
 	copy = copy_stack(stack);
 	sort_copy(copy);
