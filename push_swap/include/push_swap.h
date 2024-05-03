@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/05/02 11:32:07 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/05/03 10:46:42 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void			pb(t_stack **b, t_stack **a);
 
 // Stack initiation
 char			**ft_split(char *s, char c);
-void			init_stack_a(t_stack **a, char **av);\
+void			init_stack_a(t_stack **a, char **av);
 int				alloc_chunks_mem(int ***chunks_arr, int nb_of_chunks);
 void			free_chunks_arr(int nb_of_chunks, int **chunks_arr);
 
