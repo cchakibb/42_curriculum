@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:21:20 by chbachir          #+#    #+#             */
-/*   Updated: 2024/05/02 14:01:22 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:47:57 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,3 @@ t_stack	*copy_stack(t_stack *a)
 	}
 	return (new_head);
 }
-
-
-

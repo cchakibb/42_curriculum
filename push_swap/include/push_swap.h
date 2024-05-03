@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/05/03 10:46:42 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:38:32 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdbool.h>
 # include <stdio.h>
 
-extern int nb_moves;
+// extern int nb_moves;
 
 typedef struct s_stack
 {
