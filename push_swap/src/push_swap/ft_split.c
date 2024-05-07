@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:18:11 by chbachir          #+#    #+#             */
-/*   Updated: 2024/04/05 09:35:28 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/05/07 10:12:14 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	count_words(char *s, char c)
 		inside_word = false;
 		while (*s == c)
 			++s;
-		while (*s != c && *s) 
+		while (*s != c && *s)
 		{
 			if (!inside_word)
 			{

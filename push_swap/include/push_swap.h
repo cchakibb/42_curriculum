@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:48:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/05/03 13:38:32 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/05/07 10:27:03 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdbool.h>
-# include <stdio.h>
 
-// extern int nb_moves;
+/*
+extern int nb_moves;
+*/
 
 typedef struct s_stack
 {
@@ -75,9 +76,6 @@ void			init_stack_a(t_stack **a, char **av);
 int				alloc_chunks_mem(int ***chunks_arr, int nb_of_chunks);
 void			free_chunks_arr(int nb_of_chunks, int **chunks_arr);
 
-//______________________________________________________
-
-//***Nodes initiation
 //______________________________________________________
 
 // Algorithm

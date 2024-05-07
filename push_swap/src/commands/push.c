@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 13:50:29 by chbachir          #+#    #+#             */
-/*   Updated: 2024/05/03 13:46:44 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/05/07 10:21:21 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	pa(t_stack **a, t_stack **b)
 {
 	push(a, b);
 	set_index(*a);
-	set_index(*b); 
+	set_index(*b);
 	ft_printf("pa\n");
 }
 
@@ -48,6 +48,6 @@ void	pb(t_stack **b, t_stack **a)
 {
 	push(b, a);
 	set_index(*a);
-	set_index(*b); 
+	set_index(*b);
 	ft_printf("pb\n");
 }

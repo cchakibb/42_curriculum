@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:54:32 by chbachir          #+#    #+#             */
-/*   Updated: 2024/05/03 13:48:08 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/05/07 10:11:51 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ void	rrr(t_stack **a, t_stack **b)
 	rev_rotate(a);
 	rev_rotate(b);
 	set_index(*a);
-	set_index(*b); 
+	set_index(*b);
 	ft_printf("rrr\n");
 }
