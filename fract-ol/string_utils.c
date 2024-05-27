@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 11:33:02 by chbachir          #+#    #+#             */
-/*   Updated: 2024/05/22 11:41:34 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:14:10 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,4 @@ void	ft_putstr_fd(char *s, int fd)
 		write(fd, s, 1);
 		ft_putstr_fd(s + 1, fd);
 	}
-	
-		
-		
 }
