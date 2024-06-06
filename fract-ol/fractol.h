@@ -5,96 +5,85 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 11:16:34 by chbachir          #+#    #+#             */
-/*   Updated: 2024/05/27 14:22:26 by chbachir         ###   ########.fr       */
+/*   Created: 2024/05/29 13:28:42 by chbachir          #+#    #+#             */
+/*   Updated: 2024/05/30 12:58:41 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include <stdio.h> //TODO debugging
-# include <stdlib.h> //malloc free
-# include <unistd.h> // write
-# include <math.h>
-# include <X11/X.h>
-# include <X11/keysym.h>
 # include "minilibx-linux/mlx.h"
+# include <unistd.h>
+# include <stdlib.h>
+# include <math.h>
 
-# define ERROR_MESSAGE "Please enter \n\t\"./fractol mandelbrot\" or \n\t\"./fractol julia <value_1> <value_2>\"\n"
+# define SIZE 800
+# define RATIO 200.0//800/4
+//color
+# define BLACK 0x000000
+# define YELLOW 0xFCBE11
+# define BLUE 0x0000FF
+# define MAGENTA_BURST 0xFF00FF  // A vibrant magenta
+//RED FF0000
+//GRE 00FF00
+//BLU 0000FF
 
-# define WIDTH	800
-# define HEIGHT	800
+# define ESCAPE 4.0
 
-# define BLACK	0x000000  // RGB(0, 0, 0)
-# define WHITE	0xFFFFFF  // RGB(255, 255, 255)
-# define RED		0xFF0000  // RGB(255, 0, 0)
-# define GREEN	0x00FF00  // RGB(0, 255, 0)
-# define BLUE	0x0000FF  // RGB(0, 0, 255)
-
-// Psychedelic colors
-# define MAGENTA_BURST   0xFF00FF
-# define LIME_SHOCK      0xCCFF00
-# define NEON_ORANGE     0xFF6600
-# define PSYCHEDELIC_PURPLE 0x660066
-# define AQUA_DREAM      0x33CCCC
-# define HOT_PINK        0xFF66B2
-# define ELECTRIC_BLUE   0x0066FF
-# define LAVA_RED        0xFF3300
-
+# define ESC 65307
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
+# define INCREASE 105 //i
+# define DECREASE 100 //d
+# define CHANGE 99 //c:change color
+# define ZOOM_IN 4
+# define ZOOM_OUT 5
+# define MOUSEMOVE 6
+# define PSYCHEDELIC 112
+# define BACK 98 //b: back to previous color
+# define M_CLK_L 1// click to move mouse
+# define M_CLK_R 3//stop moving mouse
 
 typedef struct s_complex
 {
-	//		real
 	double	x;
-	//		i
 	double	y;
 }				t_complex;
 
-/*
- * IMAGE
- * This is basically a pixels buffer
- * values from mlx_get_data_addr()
-*/
-typedef struct s_img
+typedef struct S_fractal
 {
-	void	*img_ptr; //pointer to image struct
-	char	*pixels_ptr; //points to the actual pixels
+	char	*name;
+	void	*mlx;
+	void	*window;
+	void	*image;
+	char	*pixel;
 	int		bpp;
+	int		size_len;
 	int		endian;
-	int		line_len;
-}				t_img;
-
-
-typedef struct s_fractal
-{
-	char		*name;
-	void		*mlx_connection;
-	void		*mlx_window;
-	t_img		img;
-	double		escape_value;
-	int			iterations_definition;
+	int		max_iter;
+	int		color;
+	double	offset_x;
+	double	offset_y;
+	double	zoom;
+	double	julia_cx;
+	double	julia_cy;
+	int		left_click;
 }				t_fractal;
 
-
-
-
-
-// strings utils
-int				ft_strncmp(char *s1, char *s2, int n);
-void			ft_putstr_fd(char *s, int fd);
-
-// init
-void			fractal_init(t_fractal *fractal);
-
-// render
-void			fractal_render(t_fractal *fractal);
-
-// math
-double			map(double unscaled_num, double new_min, double new_max, \
-				double old_max);
-t_complex		sum_complex(t_complex z1, t_complex z2);
-t_complex		square_comlpex(t_complex z);
-
+void	put_color_to_pix(int x, int y, t_fractal *fractal, int color);
+int		exit_fractal(t_fractal *fractal);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+double	atodb(char *s);
+void	draw_fractal(t_fractal *fractal, char *name);
+void	draw_mandelbrot(t_fractal *fractal);
+void	draw_julia(t_fractal *fractal);
+//void	draw_ship(t_fractal *fractal);
+int		julia_track(int x, int y, t_fractal *fractal);
+int		key_hook(int key_code, t_fractal *fractal);
+int		mouse_hook(int keycode, int x, int y, t_fractal *fractal);
+//void	draw_newton(t_fractal *fractal);
 
 #endif
