@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   ship.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: lperez-h <lperez-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 13:11:49 by chbachir          #+#    #+#             */
-/*   Updated: 2024/06/12 11:09:51 by chbachir         ###   ########.fr       */
+/*   Created: 2024/01/08 12:29:38 by lperez-h          #+#    #+#             */
+/*   Updated: 2024/01/11 11:07:49 by lperez-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	calculate_mandelbrot(int x, int y, t_fractal *fractal);
+static void	calculate_ship(int x, int y, t_fractal *fractal);
 
-void	draw_mandelbrot(t_fractal *fractal)
+void	draw_ship(t_fractal *fractal)
 {
 	int	x;
 	int	y;
@@ -24,15 +24,16 @@ void	draw_mandelbrot(t_fractal *fractal)
 	{
 		x = -1;
 		while (++x < SIZE)
-			calculate_mandelbrot(x, y, fractal);
+			calculate_ship(x, y, fractal);
 	}
 	mlx_put_image_to_window(fractal->mlx,
 		fractal->window,
 		fractal->image, 0, 0);
 }
 
-// z(0) = 0; C = pixel point
-static void	calculate_mandelbrot(int x, int y, t_fractal *fractal)
+// z = z^z + c
+
+static void	calculate_ship(int x, int y, t_fractal *fractal)
 {
 	t_complex	z;
 	t_complex	c;
@@ -47,8 +48,8 @@ static void	calculate_mandelbrot(int x, int y, t_fractal *fractal)
 	while (i++ < fractal->max_iter)
 	{
 		temp_x = z.x * z.x - z.y * z.y + c.x;
-		z.y = 2 * z.x * z.y + c.y;
-		z.x = temp_x;
+		z.y = fabs(2 * z.x * z.y) + c.y;
+		z.x = fabs(temp_x);
 		if (z.x * z.x + z.y * z.y > ESCAPE)
 		{
 			put_color_to_pix(x, y, fractal, fractal->color * (i % 256));

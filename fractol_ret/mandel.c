@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   mandel.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: lperez-h <lperez-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 13:11:49 by chbachir          #+#    #+#             */
-/*   Updated: 2024/06/12 11:09:51 by chbachir         ###   ########.fr       */
+/*   Created: 2024/01/08 10:23:51 by lperez-h          #+#    #+#             */
+/*   Updated: 2024/01/08 10:24:03 by lperez-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	calculate_mandelbrot(int x, int y, t_fractal *fractal);
+static void	calculate_mandel(int x, int y, t_fractal *fractal);
 
-void	draw_mandelbrot(t_fractal *fractal)
+void	draw_mandel(t_fractal *fractal)
 {
 	int	x;
 	int	y;
@@ -24,7 +24,7 @@ void	draw_mandelbrot(t_fractal *fractal)
 	{
 		x = -1;
 		while (++x < SIZE)
-			calculate_mandelbrot(x, y, fractal);
+			calculate_mandel(x, y, fractal);
 	}
 	mlx_put_image_to_window(fractal->mlx,
 		fractal->window,
@@ -32,7 +32,7 @@ void	draw_mandelbrot(t_fractal *fractal)
 }
 
 // z(0) = 0; C = pixel point
-static void	calculate_mandelbrot(int x, int y, t_fractal *fractal)
+static void	calculate_mandel(int x, int y, t_fractal *fractal)
 {
 	t_complex	z;
 	t_complex	c;

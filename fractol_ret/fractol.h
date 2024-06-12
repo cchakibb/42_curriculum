@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: lperez-h <lperez-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/29 13:28:42 by chbachir          #+#    #+#             */
-/*   Updated: 2024/06/12 14:23:08 by chbachir         ###   ########.fr       */
+/*   Created: 2024/01/08 10:21:26 by lperez-h          #+#    #+#             */
+/*   Updated: 2024/01/08 12:30:26 by lperez-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 # define ZOOM_IN 4
 # define ZOOM_OUT 5
 # define MOUSEMOVE 6
+# define PSYCHEDELIC 112
 # define BACK 98 //b: back to previous color
 # define M_CLK_L 1// click to move mouse
 # define M_CLK_R 3//stop moving mouse
@@ -58,7 +59,7 @@ typedef struct S_fractal
 	void	*mlx;
 	void	*window;
 	void	*image;
-	char	*pixel_addr;
+	char	*pixel;
 	int		bpp;
 	int		size_len;
 	int		endian;
@@ -75,14 +76,14 @@ typedef struct S_fractal
 void	put_color_to_pix(int x, int y, t_fractal *fractal, int color);
 int		exit_fractal(t_fractal *fractal);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-double	atodb(char *s);
-void	draw_fractal(t_fractal *fractal, char *name);
-void	draw_mandelbrot(t_fractal *fractal);
+double	atoi_db(char *s);
+void	call_fractal(t_fractal *fractal, char *name);
+void	draw_mandel(t_fractal *fractal);
 void	draw_julia(t_fractal *fractal);
-//void	draw_ship(t_fractal *fractal);
+void	draw_ship(t_fractal *fractal);
 int		julia_track(int x, int y, t_fractal *fractal);
 int		key_hook(int key_code, t_fractal *fractal);
 int		mouse_hook(int keycode, int x, int y, t_fractal *fractal);
-//void	draw_newton(t_fractal *fractal);
+void	draw_newton(t_fractal *fractal);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: lperez-h <lperez-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 13:07:24 by chbachir          #+#    #+#             */
-/*   Updated: 2024/06/12 14:23:08 by chbachir         ###   ########.fr       */
+/*   Created: 2024/01/08 10:23:33 by lperez-h          #+#    #+#             */
+/*   Updated: 2024/01/11 11:07:56 by lperez-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	put_color_to_pix(int x, int y, t_fractal *fractal, int color)
 	char	*temp;
 
 	pos = y * fractal->size_len + x * (fractal->bpp / 8);
-	temp = fractal->pixel_addr + pos;
+	temp = fractal->pixel + pos;
 	*(unsigned int *)temp = color;
 }
 
@@ -32,12 +32,14 @@ int	exit_fractal(t_fractal *fractal)
 	return (1);
 }
 
-void	draw_fractal(t_fractal *fractal, char *name)
+void	call_fractal(t_fractal *fractal, char *name)
 {
-	if (ft_strncmp(name, "mandelbrot", 10) == 0)
-		draw_mandelbrot(fractal);
-	else if (ft_strncmp(name, "julia", 5) == 0)
+	if (ft_strncmp(name, "mandel", 7) == 0)
+		draw_mandel(fractal);
+	else if (ft_strncmp(name, "julia", 6) == 0)
 		draw_julia(fractal);
+	else if (ft_strncmp(name, "ship", 5) == 0)
+		draw_ship(fractal);
 }
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -52,7 +54,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
 
-double	atodb(char *s)
+double	atoi_db(char *s)
 {
 	double	int_part;
 	double	double_part;

@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: lperez-h <lperez-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 13:11:49 by chbachir          #+#    #+#             */
-/*   Updated: 2024/06/12 11:09:51 by chbachir         ###   ########.fr       */
+/*   Created: 2024/01/08 10:23:03 by lperez-h          #+#    #+#             */
+/*   Updated: 2024/01/08 15:06:02 by lperez-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	calculate_mandelbrot(int x, int y, t_fractal *fractal);
+// C = each pixel position (constant), calculate if z escaped;
+void	calculate_julia(int x, int y, t_fractal *fractal);
 
-void	draw_mandelbrot(t_fractal *fractal)
+void	draw_julia(t_fractal *fractal)
 {
 	int	x;
 	int	y;
@@ -24,32 +25,29 @@ void	draw_mandelbrot(t_fractal *fractal)
 	{
 		x = -1;
 		while (++x < SIZE)
-			calculate_mandelbrot(x, y, fractal);
+			calculate_julia(x, y, fractal);
 	}
 	mlx_put_image_to_window(fractal->mlx,
 		fractal->window,
 		fractal->image, 0, 0);
 }
 
-// z(0) = 0; C = pixel point
-static void	calculate_mandelbrot(int x, int y, t_fractal *fractal)
+// Z = each pixel point C = a fix number / actual mouse position
+void	calculate_julia(int x, int y, t_fractal *fractal)
 {
 	t_complex	z;
-	t_complex	c;
 	double		temp_x;
 	int			i;
 
-	z.x = 0.0;
-	z.y = 0.0;
-	c.x = x / RATIO * fractal->zoom + fractal->offset_x;
-	c.y = -y / RATIO * fractal->zoom + fractal->offset_y;
+	z.x = x / RATIO * fractal->zoom + fractal->offset_x;
+	z.y = -y / RATIO * fractal->zoom + fractal->offset_y;
 	i = 0;
 	while (i++ < fractal->max_iter)
 	{
-		temp_x = z.x * z.x - z.y * z.y + c.x;
-		z.y = 2 * z.x * z.y + c.y;
+		temp_x = z.x * z.x - z.y * z.y + fractal->julia_cx;
+		z.y = 2 * z.x * z.y + fractal->julia_cy;
 		z.x = temp_x;
-		if (z.x * z.x + z.y * z.y > ESCAPE)
+		if ((z.x * z.x + z.y * z.y) > ESCAPE)
 		{
 			put_color_to_pix(x, y, fractal, fractal->color * (i % 256));
 			return ;
