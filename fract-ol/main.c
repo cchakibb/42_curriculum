@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:28:50 by chbachir          #+#    #+#             */
-/*   Updated: 2024/06/12 14:24:05 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/06/13 14:00:00 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ static void	init_mlx(t_fractal *fractal, char **av)
 
 static void	init_other_data(t_fractal *fractal, char **av)
 {
-	fractal->max_iter = 50;
-	fractal->color = BLUE;
+	fractal->max_iter = 40;
+	fractal->color = YELLOW;
 	fractal->offset_x = -2;
 	fractal->offset_y = 2;
 	fractal->zoom = 1.0;
@@ -66,5 +66,4 @@ static void	init_other_data(t_fractal *fractal, char **av)
 		fractal->julia_cx = atodb(av[2]);
 		fractal->julia_cy = atodb(av[3]);
 	}
-	fractal->left_click = 0;
 }

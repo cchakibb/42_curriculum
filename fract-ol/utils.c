@@ -6,13 +6,13 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:07:24 by chbachir          #+#    #+#             */
-/*   Updated: 2024/06/12 14:23:08 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/06/13 11:23:50 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	put_color_to_pix(int x, int y, t_fractal *fractal, int color)
+void	change_pxl_color(int x, int y, t_fractal *fractal, int color)
 {
 	int		pos;
 	char	*temp;
