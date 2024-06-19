@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 10:49:46 by chbachir          #+#    #+#             */
-/*   Updated: 2024/06/18 14:45:31 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/06/19 11:09:47 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,35 +29,27 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 double	atodb(char *s)
 {
-	double	value;
-	double	factor;
+	double	result;
+	double	decimal;
 	int		sign;
 	int		i;
 
-	value = 0.0;
+	result = 0.0;
+	decimal = 0.1;
 	sign = 1;
 	i = 0;
-	if (s[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	else if (s[i] == '+')
-		i++;
+	while (s[i] == '-' || s[i] == '+')
+		if (s[i++] == '-')
+			sign = -1;
 	while (s[i] >= '0' && s[i] <= '9')
+		result = result * 10.0 + (s[i++] - '0');
+	if (s[i++] == '.')
 	{
-		value = value * 10.0 + (s[i] - '0');
-		i++;
-	}
-	if (s[i] == '.')
-	{
-		i++;
-		factor = 0.1;
 		while (s[i] >= '0' && s[i] <= '9')
 		{
-			value += (s[i] - '0') * factor;
-			factor *= 0.1;
-			i++;
+			result += (s[i++] - '0') * decimal;
+			decimal *= 0.1;
 		}
 	}
+	return (sign * result);
 }

@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/06/18 11:15:48 by chbachir          #+#    #+#              #
-#    Updated: 2024/06/19 12:29:28 by chbachir         ###   ########.fr        #
+#    Created: 2024/06/14 12:00:31 by chbachir          #+#    #+#              #
+#    Updated: 2024/06/14 12:00:32 by chbachir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,21 +15,22 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MLX_PATH = minilibx-linux
 MLX = minilibx-linux/libmlx.a
-HEADER = fractol.h
-SRC = main.c events.c utils.c mandelbrot.c julia.c mlx.c
-OBJS = $(SRC:.c=.o)
+LIB = fractol.h
+SRC = main.c \
+	events.c \
+	julia.c \
+	mandelbrot.c \
+	utils.c
 
-all:	$(NAME) $(MLX)
+OBJS = $(SRC:.c=.o)
+all:        $(NAME) $(MLX)
 $(NAME): $(OBJS)
-		@make -C $(MLX_PATH)
-		$(CC) $(CFLAGS) $(OBJS) -L$(MLX_PATH) -lmlx_Linux -lX11 -lXext -lm -o $(NAME)
+	@make -C $(MLX_PATH)
+	$(CC) $(CFLAGS) $(OBJS) -L$(MLX_PATH) -lmlx_Linux -lX11 -lXext -lm -o $(NAME)
 clean:
 		rm -f $(OBJS)
 		@make clean -C $(MLX_PATH)
 fclean: clean
 		rm -f $(NAME) $(MLX)
-re: fclean all
+re:     fclean all
 .PHONY: all clean fclean re
-		
-
-
