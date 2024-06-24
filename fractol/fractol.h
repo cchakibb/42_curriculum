@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 10:46:30 by chbachir          #+#    #+#             */
-/*   Updated: 2024/06/19 23:50:49 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:41:24 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,17 @@ void		start_mlx(t_fractal *fractal, char **av);
 void		fill_other_data(t_fractal *fractal, char **av);
 int			close_fractal(t_fractal *fractal);
 int			key_hook(int key, t_fractal *fractal);
+int			mouse_hook(int key, int x, int y, t_fractal *fractal);
 
 //drawing
 void		render_fractals(t_fractal *fractal, char *fractal_name);
 void		render_mandelbrot(t_fractal *fractal);
+void		render_julia(t_fractal *fractal);
 void		color_pixel(int x, int y, t_fractal *fractal, int color);
 
 // calculation
 void		calculate_mandelbrot(int x, int y, t_fractal *fractal);
+void		calculate_julia(int x, int y, t_fractal *fractal);
 t_complex	complex_square(t_complex z);
 double		complex_magnitude_squared(t_complex z);
 t_complex	pixel_to_complex(int x, int y, t_fractal *fractal);

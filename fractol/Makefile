@@ -6,7 +6,7 @@
 #    By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/18 11:15:48 by chbachir          #+#    #+#              #
-#    Updated: 2024/06/19 12:29:28 by chbachir         ###   ########.fr        #
+#    Updated: 2024/06/24 14:28:01 by chbachir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror
 MLX_PATH = minilibx-linux
 MLX = minilibx-linux/libmlx.a
 HEADER = fractol.h
-SRC = main.c events.c utils.c mandelbrot.c julia.c mlx.c
+SRC = fractol.c events.c utils.c mandelbrot.c julia.c mlx.c math.c
 OBJS = $(SRC:.c=.o)
 
 all:	$(NAME) $(MLX)

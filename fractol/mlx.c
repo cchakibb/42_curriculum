@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 13:47:06 by chbachir          #+#    #+#             */
-/*   Updated: 2024/06/19 23:52:02 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:31:40 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	start_mlx(t_fractal *fractal, char **av) //k
 	fill_other_data(fractal, av);
 }
 
-void	fill_other_data(t_fractal *fractal, char **av) //K
+void	fill_other_data(t_fractal *fractal, char **av)
 {
 	fractal->max_fractal_iterations = 40;
 	fractal->color = SALMON;
@@ -37,7 +37,8 @@ void	fill_other_data(t_fractal *fractal, char **av) //K
 		fractal->julia_c_imaginary = atodb(av[3]);
 	}
 }
-int	close_fractal(t_fractal *fractal) //K
+
+int	close_fractal(t_fractal *fractal)
 {
 	mlx_destroy_image(fractal->mlx, fractal->image);
 	mlx_destroy_window(fractal->mlx, fractal->window);
@@ -51,6 +52,16 @@ void	render_fractals(t_fractal *fractal, char *fractal_name) //K
 {
 	if (ft_strncmp(fractal_name, "mandelbrot", 11) == 0)
 		render_mandelbrot(fractal);
-	//else if (!ft_strncmp(fractal_name, "julia", 6))
-		//render_julia(fractal);
+	else if (!ft_strncmp(fractal_name, "julia", 6))
+		render_julia(fractal);
+}
+
+void	color_pixel(int x, int y, t_fractal *fractal, int color)
+{
+	int		pixel_position;
+	char	*pixel_address;
+
+	pixel_position = calculate_pixel_position(x, y, fractal);
+	pixel_address = fractal->pixl_addr + pixel_position;
+	*(unsigned int *)pixel_address = color;
 }
