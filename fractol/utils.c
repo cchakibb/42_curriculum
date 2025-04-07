@@ -6,12 +6,11 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 10:49:46 by chbachir          #+#    #+#             */
-/*   Updated: 2024/06/19 11:09:47 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/06/25 11:01:08 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

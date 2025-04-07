@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 10:46:30 by chbachir          #+#    #+#             */
-/*   Updated: 2024/06/24 13:41:24 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/06/25 13:35:49 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "minilibx-linux/mlx.h"
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 # define SIZE 800
 # define RATIO 200.0
@@ -43,7 +42,7 @@ typedef struct s_fractal
 	void		*image;
 	char		*pixl_addr;
 	int			bpp;
-	int			line_size_bytes; //represents the size of a line in the image in bytes
+	int			line_size_bytes;
 	int			endian;
 	double		zoom;
 	int			color;
@@ -80,10 +79,9 @@ void		color_pixel(int x, int y, t_fractal *fractal, int color);
 // calculation
 void		calculate_mandelbrot(int x, int y, t_fractal *fractal);
 void		calculate_julia(int x, int y, t_fractal *fractal);
+t_complex	pixel_to_complex(int x, int y, t_fractal *fractal);
 t_complex	complex_square(t_complex z);
 double		complex_magnitude_squared(t_complex z);
-t_complex	pixel_to_complex(int x, int y, t_fractal *fractal);
 int			calculate_pixel_position(int x, int y, t_fractal *fractal);
-
 
 #endif

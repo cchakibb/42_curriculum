@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 13:26:25 by chbachir          #+#    #+#             */
-/*   Updated: 2024/06/24 14:26:31 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/06/25 10:19:39 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_complex	pixel_to_complex(int x, int y, t_fractal *fractal)
 
 	c.real = x / RATIO * fractal->zoom + fractal->x_offset;
 	c.imaginary = -y / RATIO * fractal->zoom + fractal->y_offset;
-	return (c); 
+	return (c);
 }
 
 int	calculate_pixel_position(int x, int y, t_fractal *fractal)

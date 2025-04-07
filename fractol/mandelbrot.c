@@ -6,7 +6,7 @@
 /*   By: chbachir <chbachir@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:53:43 by chbachir          #+#    #+#             */
-/*   Updated: 2024/06/24 13:31:57 by chbachir         ###   ########.fr       */
+/*   Updated: 2024/06/25 10:18:34 by chbachir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,3 @@ void	calculate_mandelbrot(int x, int y, t_fractal *fractal)
 	}
 	color_pixel(x, y, fractal, BLACK);
 }
-
-
-
-
