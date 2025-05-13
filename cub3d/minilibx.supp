@@ -1,0 +1,8 @@
+{
+   X11Shm
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   ...
+   fun:XShmCreateImage
+}
