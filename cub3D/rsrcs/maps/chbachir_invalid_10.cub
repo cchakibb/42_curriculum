@@ -1,0 +1,10 @@
+C 225,30,0
+NO ./rsrcs/textures/N.xpm
+WE ./rsrcs/textures/W.xpm
+EA ./rsrcs/textures/E.xpm
+F 220,100,0
+SO ./rsrcs/textures/S.xpm
+
+11111
+1N0 1
+11111

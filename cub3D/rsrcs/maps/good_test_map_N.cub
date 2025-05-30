@@ -1,0 +1,12 @@
+NO ./rsrcs/textures/N.xpm
+SO ./rsrcs/textures/S.xpm
+WE ./rsrcs/textures/W.xpm
+EA ./rsrcs/textures/E.xpm
+F 100,100,100
+C 200,200,200
+
+111111
+100001
+100N01
+100001
+111111

@@ -1,0 +1,140 @@
+{
+   mlx_x11_leak_calloc
+   Memcheck:Leak
+   fun:calloc
+   obj:*/libX11.so*
+}
+{
+   mlx_x11_leak_malloc
+   Memcheck:Leak
+   fun:malloc
+   obj:*/libX11.so*
+}
+{
+   mlx_x11_leak_realloc
+   Memcheck:Leak
+   fun:realloc
+   obj:*/libX11.so*
+}
+{
+   mlx_x11_leak_strdup
+   Memcheck:Leak
+   fun:strdup
+   obj:*/libX11.so*
+}
+{
+   mlx_xext_leak_calloc
+   Memcheck:Leak
+   fun:calloc
+   obj:*/libXext.so*
+}
+{
+   mlx_xext_leak_malloc
+   Memcheck:Leak
+   fun:malloc
+   obj:*/libXext.so*
+}
+{
+   mlx_xext_leak_strdup
+   Memcheck:Leak
+   fun:strdup
+   obj:*/libXext.so*
+}
+{
+   mlx_xcb_leak_calloc
+   Memcheck:Leak
+   fun:calloc
+   obj:*/libxcb.so*
+}
+{
+   mlx_xcb_leak_malloc
+   Memcheck:Leak
+   fun:malloc
+   obj:*/libxcb.so*
+}
+{
+   mlx_xcb_leak_realloc
+   Memcheck:Leak
+   fun:realloc
+   obj:*/libxcb.so*
+}
+{
+   mlx_leak_mlx_init_calloc
+   Memcheck:Leak
+   fun:calloc
+   fun:mlx_init
+   ...
+}
+{
+   mlx_leak_mlx_init_malloc
+   Memcheck:Leak
+   fun:malloc
+   fun:mlx_init
+   ...
+}
+{
+   mlx_leak_mlx_new_window_calloc
+   Memcheck:Leak
+   fun:calloc
+   fun:mlx_new_window
+   ...
+}
+{
+   mlx_leak_mlx_new_window_malloc
+   Memcheck:Leak
+   fun:malloc
+   fun:mlx_new_window
+   ...
+}
+{
+   mlx_leak_mlx_int_new_xshm_image_calloc
+   Memcheck:Leak
+   fun:calloc
+   fun:mlx_int_new_xshm_image
+   ...
+}
+{
+   mlx_leak_mlx_int_deal_shm_strdup
+   Memcheck:Leak
+   fun:strdup
+   fun:mlx_int_deal_shm
+   ...
+}
+{
+   <mlx_param_writev_uninit_new_window_anti_resize>
+   Memcheck:Param
+   writev(vector[0])
+   fun:writev
+   fun:???
+   fun:???
+   fun:xcb_writev
+   fun:_XSend
+   fun:_XReadEvents
+   fun:XWindowEvent
+   fun:mlx_int_wait_first_expose
+   fun:mlx_new_window
+}
+{
+   mlx_param_writev_uninit_xcb
+   Memcheck:Param
+   writev(vector[0])
+   obj:*/libxcb.so*
+}
+{
+   mlx_param_writev_uninit_x11
+   Memcheck:Param
+   writev(vector[0])
+   obj:*/libX11.so*
+}
+{
+   <mlx_uninit_generic_x11>
+   Memcheck:Value8
+   obj:*/libX11.so*
+   fun:XInternAtom
+}
+{
+   <mlx_cond_jump_or_move_depends_on_uninit>
+   Memcheck:Cond
+   obj:*/libX11.so*
+   ...
+}
