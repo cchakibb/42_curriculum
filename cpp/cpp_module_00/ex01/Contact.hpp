@@ -3,32 +3,24 @@
 
 #include <string>
 
-class Contact
-{
-private:
-    std::string _firstName;
-    std::string _lastName;
-    std::string _nickname;
-    std::string _phoneNumber;
-    std::string _darkestSecret;
-
+class Contact {
 public:
-    Contact();
-    ~Contact();
+	Contact();
+	std::string getFirstName() const;
+	std::string getLastName() const;
+	std::string getNickname() const;
+	std::string getPhoneNumber() const;
+	std::string getDarkestSecret() const; // Peut-être pas pour l'affichage public :)
 
-    // setters
-    void setFirstName(const std::string& s);
-    void setLastName(const std::string& s);
-    void setNickname(const std::string& s);
-    void setPhoneNumber(const std::string& s);
-    void setDarkestSecret(const std::string& s);
+	void initialize(const std::string& first, const std::string& last, const std::string& nick, 
+					const std::string& phone, const std::string& secret);
 
-    // getters
-    std::string getFirstName() const;
-    std::string getLastName() const;
-    std::string getNickname() const;
-    std::string getPhoneNumber() const;
-    std::string getDarkestSecret() const;
+private:
+	std::string first_name;
+	std::string last_name;
+	std::string nickname;
+	std::string phone_number;
+	std::string darkest_secret;
 };
 
 #endif

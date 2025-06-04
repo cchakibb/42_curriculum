@@ -2,18 +2,19 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
+// #include <string>
 
-class PhoneBook
-{
-private:
-    Contact _contacts[8];
-    int     _count;   // nombre total ajoutés
+class PhoneBook {
 public:
-    PhoneBook();
-    ~PhoneBook();
+	PhoneBook(); 
 
-    void    add();
-    void    search() const;
+	void addContact();
+	void searchContacts();
+
+private:
+	Contact contacts[8];
+	int contactCount;
+	int oldestContactIndex;
 };
 
 #endif
