@@ -2,11 +2,10 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
-// #include <string>
 
 class PhoneBook {
 public:
-	PhoneBook(); 
+	PhoneBook();
 
 	void addContact();
 	void searchContacts();

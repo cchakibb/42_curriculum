@@ -7,7 +7,6 @@ Contact::Contact()
 	this->nickname = "";
 	this->phone_number = "";
 	this->darkest_secret = "";
-	// std::cout << "Constructeur de Contact appelé (par défaut)" << std::endl;
 }
 
 void Contact::initialize(const std::string& first, const std::string& last, const std::string& nick,
